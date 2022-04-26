@@ -5,6 +5,12 @@ const HomePresenter = () => {
   return (
     <>
       <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
+      <Text>Hello</Text>
     </>
   );
 };
