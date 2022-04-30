@@ -1,16 +1,10 @@
 import React from 'react';
-import {Text} from 'react-native';
+import CCalendar from '@components/Calendar/Calendar';
 
 const HomePresenter = () => {
   return (
     <>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
+      <CCalendar />
     </>
   );
 };

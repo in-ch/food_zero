@@ -35,10 +35,11 @@ const TText = styled.Text`
 `;
 
 interface HeaderProps {
+  text: string;
   back: () => void;
 }
 
-const Header = ({back}: HeaderProps) => {
+const Header = ({text, back}: HeaderProps) => {
   return (
     <Container>
       <SizedBox.Custom margin={statusBarHeight} />
@@ -54,7 +55,7 @@ const Header = ({back}: HeaderProps) => {
           />
         </IconContatiner>
         <TextContainer>
-          <TText style={{textAlign: 'center'}}>프로필 생성</TText>
+          <TText style={{textAlign: 'center'}}>{text}</TText>
         </TextContainer>
       </Wrapper>
     </Container>

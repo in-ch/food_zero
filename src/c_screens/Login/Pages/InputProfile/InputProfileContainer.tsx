@@ -12,10 +12,13 @@ const InputProfileContainer = ({navigation}: InputProfileProp) => {
   const GoBack = () => {
     navigation.goBack();
   };
+  const GoToHome = () => {
+    navigation.navigate('Home', {});
+  };
 
   return (
     <>
-      <InputProfilePresenter GoBack={GoBack} />
+      <InputProfilePresenter GoBack={GoBack} GoToHome={GoToHome} />
     </>
   );
 };
