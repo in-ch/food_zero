@@ -11,7 +11,7 @@ interface Props {
 
 const LoginContainer = ({navigation}: Props) => {
   const GoToEmailPage = () => {
-    // navigation.navigate('LoginEmail', {});
+    navigation.navigate('InputProfile', {});
     console.warn(navigation);
   };
   useEffect(() => {

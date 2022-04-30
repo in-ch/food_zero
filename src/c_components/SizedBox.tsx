@@ -1,7 +1,8 @@
 import React, {memo} from 'react';
 import styled from 'styled-components/native';
 import {ViewStyle} from 'react-native';
-import {isAndroid} from '../utills/constants';
+
+import {isAndroid} from '@utills/constants';
 
 const StyledTouchable = styled.TouchableOpacity`
   width: 100%;
