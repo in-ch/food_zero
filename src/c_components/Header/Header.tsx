@@ -4,6 +4,8 @@ import styled from 'styled-components/native';
 import {cWidth, nomalizes, statusBarHeight} from '@utills/constants';
 import {SizedBox} from '@components/SizedBox';
 import {cssUtil} from '@utills/cssUtil';
+import Images from '@assets/images';
+import {Image} from 'react-native';
 
 const Container = styled.View`
   background-color: #fff;
@@ -27,7 +29,7 @@ const TextContainer = styled.View`
 `;
 const TText = styled.Text`
   position: relative;
-  left: -${nomalizes[10]}px;
+  left: -${nomalizes[15]}px;
   font-size: ${nomalizes[14]}px;
   font-weight: bold;
 `;
@@ -46,7 +48,10 @@ const Header = ({back}: HeaderProps) => {
           borderBottomWidth: 2,
         }}>
         <IconContatiner onPress={back}>
-          {/* <Image require={} /> */}
+          <Image
+            style={{width: nomalizes[20], height: nomalizes[20]}}
+            source={Images.back}
+          />
         </IconContatiner>
         <TextContainer>
           <TText style={{textAlign: 'center'}}>프로필 생성</TText>

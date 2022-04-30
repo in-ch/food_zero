@@ -1,5 +1,4 @@
 import React from 'react';
-import Icon from 'react-native-vector-icons/Ionicons';
 import styled from 'styled-components/native';
 
 import {nomalizes} from '@utills/constants';
@@ -23,9 +22,7 @@ const Profile = styled.TouchableOpacity`
 const InsertProfileImg = () => {
   return (
     <Container>
-      <Profile>
-        <Icon name="plus" size={nomalizes[0]} color="#fff" />
-      </Profile>
+      <Profile />
     </Container>
   );
 };

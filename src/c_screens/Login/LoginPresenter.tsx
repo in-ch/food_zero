@@ -1,14 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {ActivityIndicator, Image} from 'react-native';
 import styled from 'styled-components/native';
-import {SizedBox} from '../../c_components/SizedBox';
-import {
-  cHeight,
-  cWidth,
-  nomalizes,
-  statusBarHeight,
-} from '../../utills/constants';
-import {cssUtil} from '../../utills/cssUtil';
+import {SizedBox} from '@components/SizedBox';
+import {cHeight, cWidth, nomalizes, statusBarHeight} from '@utills/constants';
+import {cssUtil} from '@utills/cssUtil';
+
+import Images from 'assets';
 
 const Container = styled.View`
   display: flex;
@@ -33,7 +30,6 @@ const LoginJon = styled.View`
   display: flex;
   ${cssUtil.doubleCenter};
 `;
-
 const PhoneButton = styled.TouchableOpacity`
   width: 80%;
   height: ${nomalizes[40]}px;
@@ -58,7 +54,6 @@ const Heading2 = styled.Text`
   margin-top: ${nomalizes[3]}px;
   color: #4d4d4d;
 `;
-
 const LoadingContainer = styled.View`
   background-color: white;
   width: ${cWidth}px;
@@ -91,7 +86,7 @@ const LoginPresenter = ({GoToEmailPage}: Props) => {
                   width: nomalizes[50],
                   height: nomalizes[50],
                 }}
-                source={require('../../assets/imgs/bookmark_hover.png')}
+                source={Images.logo}
               />
               <Heading>푸드 제로</Heading>
               <Heading2>이웃과 음식을 나눠 보세요.</Heading2>
@@ -106,7 +101,7 @@ const LoginPresenter = ({GoToEmailPage}: Props) => {
                     width: nomalizes[25],
                     height: nomalizes[25],
                   }}
-                  source={require('../../assets/imgs/kakao-logo.png')}
+                  source={Images.kakao}
                 />
                 <TText>카카오로 로그인</TText>
               </PhoneButton>
@@ -119,7 +114,7 @@ const LoginPresenter = ({GoToEmailPage}: Props) => {
                     width: nomalizes[25],
                     height: nomalizes[25],
                   }}
-                  source={require('../../assets/imgs/google-logo.png')}
+                  source={Images.google}
                 />
                 <TText>구글로 로그인</TText>
               </PhoneButton>
@@ -132,7 +127,7 @@ const LoginPresenter = ({GoToEmailPage}: Props) => {
                     width: nomalizes[25],
                     height: nomalizes[25],
                   }}
-                  source={require('../../assets/imgs/apple-logo.png')}
+                  source={Images.apple}
                 />
                 <TText>애플로 로그인</TText>
               </PhoneButton>
