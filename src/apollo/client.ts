@@ -7,7 +7,7 @@ import {
 import {setContext} from '@apollo/client/link/context';
 import {WebSocketLink} from '@apollo/client/link/ws';
 import {getMainDefinition} from '@apollo/client/utilities';
-import {isAndroid} from '../utills/constants';
+import {isAndroid} from '@utills/constants';
 
 // 로그인 관련 state 끝
 

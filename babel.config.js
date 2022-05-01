@@ -22,7 +22,6 @@ module.exports = {
           '@screens': './src/c_screens',
           '@assets': './src/assets',
           '@utills': './src/utills',
-          '@apollo': './src/apollo',
           '@navigation': './src/navigation',
           '@hooks': './src/hooks',
         },
