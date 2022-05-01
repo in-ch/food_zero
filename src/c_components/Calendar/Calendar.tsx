@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {Calendar} from 'react-native-calendars';
+import {Calendar, CalendarList} from 'react-native-calendars';
 import {View} from 'react-native';
 import styled from 'styled-components/native';
 import moment from 'moment';
@@ -35,7 +35,7 @@ interface DayTextProps {
 const CCalendar = () => {
   return (
     <>
-      <Calendar
+      <CalendarList
         dayComponent={({date, state}) => {
           console.log('상태' + state);
           return (
@@ -72,31 +72,31 @@ const CCalendar = () => {
               justifyContent: 'space-around',
             },
           },
+          'stylesheet.calendar.header': {
+            dayTextAtIndex6: {
+              color: 'red',
+            },
+          },
         }}
         current={'2022-04-17'}
-        minDate={'2022-01-01'}
-        maxDate={'2022-12-31'}
-        onDayPress={day => {
-          console.log('selected day', day);
-        }}
-        onDayLongPress={day => {
-          console.log('selected day', day);
-        }}
+        minDate={'2015-01-01'}
+        maxDate={'2030-12-31'}
         monthFormat={'yyyy MM'}
-        onMonthChange={month => {
-          console.log('month changed', month);
-        }}
-        hideExtraDays={false}
         disableMonthChange={true}
+        hideExtraDays={false}
         firstDay={1}
         hideDayNames={false}
         showWeekNumbers={false}
-        onPressArrowLeft={subtractMonth => subtractMonth()}
-        onPressArrowRight={addMonth => addMonth()}
         hideArrows={true}
         disableArrowLeft={true}
         disableArrowRight={true}
         disableAllTouchEventsForDisabledDays={true}
+        enableSwipeMonths={false}
+        horizontal={true}
+        pagingEnabled={true}
+        pastScrollRange={50}
+        // Max amount of months allowed to scroll to the future. Default = 50
+        futureScrollRange={50}
         renderHeader={date => {
           return (
             <>
@@ -105,7 +105,6 @@ const CCalendar = () => {
           );
         }}
         // Enable the option to swipe between months. Default = false
-        enableSwipeMonths={true}
       />
     </>
   );
