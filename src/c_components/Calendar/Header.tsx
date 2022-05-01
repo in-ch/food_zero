@@ -1,27 +1,41 @@
 import React from 'react';
-import {Text} from 'react-native';
 import styled from 'styled-components/native';
+import {nomalizes} from '~/utills/constants';
+// import moment from 'moment';
+// import 'moment/locale/ko';
 
+// require('moment-timezone');
+
+const Container = styled.View`
+  width: 100%;
+  height: ${nomalizes[40]}px;
+`;
 const HHeader = styled.View`
-  width: 250px;
-  height: 50px;
-  border: 1px solid #000;
+  width: 100%;
+  height: ${nomalizes[40]}px;
   display: flex;
   justify-content: center;
-  align-items: center;
 `;
-
-// const GmtToUtc = (data: string) => {};
+const TText = styled.Text`
+  font-size: ${nomalizes[16]}px;
+  font-weight: bold;
+`;
 interface Props {
   date: string;
 }
 
 const Header = ({date}: Props) => {
-  console.log('달력 : ' + String(date));
+  const ddate = new Date(date);
+  const month = ddate.getMonth();
+  const year = ddate.getFullYear();
   return (
-    <HHeader>
-      <Text>{String(date)}</Text>
-    </HHeader>
+    <Container>
+      <HHeader>
+        <TText>
+          {year}년 {month + 1}월
+        </TText>
+      </HHeader>
+    </Container>
   );
 };
 

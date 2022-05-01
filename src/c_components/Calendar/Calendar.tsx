@@ -1,63 +1,77 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {Calendar} from 'react-native-calendars';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
+import styled from 'styled-components/native';
+import moment from 'moment';
+import 'moment/locale/ko';
+
+require('moment-timezone');
 
 import Header from './Header';
 import {SizedBox} from '@components/SizedBox';
 import {nomalizes} from '@utills/constants';
+
+const TextContainer = styled.View`
+  padding-left: ${nomalizes[2]}px;
+  padding-top: ${nomalizes[2]}px;
+  padding-bottom: ${nomalizes[2]}px;
+  margin-bottom: ${nomalizes[5]}px;
+  margin-right: ${nomalizes[5]}px;
+  background-color: #5f5bff;
+`;
+const DayText = styled.Text<DayTextProps>`
+  color: ${props => (props.disabled === 'disabled' ? '#cacaca' : '#303030')};
+`;
+const TText = styled.Text`
+  text-align: left;
+  font-size: ${nomalizes[8]}px;
+`;
+
+interface DayTextProps {
+  disabled: string;
+}
 
 const CCalendar = () => {
   return (
     <>
       <Calendar
         dayComponent={({date, state}) => {
+          console.log('상태' + state);
           return (
             <View style={{height: 80}}>
-              <Text
-                style={{
-                  textAlign: 'center',
-                  color: state === 'disabled' ? 'black' : 'black',
-                  borderBottomColor: 'blue',
-                }}>
-                {date?.day}
-              </Text>
+              <DayText disabled={state}>{date?.day}</DayText>
               <SizedBox.Custom margin={nomalizes[5]} />
-              <Text
-                style={{
-                  textAlign: 'center',
-                  color: state === 'disabled' ? 'black' : 'black',
-                  borderBottomColor: 'blue',
-                }}>
-                토마토
-              </Text>
-              <Text>딸기</Text>
-              <Text>오렌지</Text>
+              {state !== 'disabled' && (
+                <>
+                  <TextContainer>
+                    <TText>파인애플</TText>
+                  </TextContainer>
+                  <TextContainer>
+                    <TText>토마토</TText>
+                  </TextContainer>
+                  <TextContainer>
+                    <TText>토마토</TText>
+                  </TextContainer>
+                </>
+              )}
             </View>
           );
         }}
         theme={{
-          backgroundColor: '#ffffff',
-          calendarBackground: '#ffffff',
-          textSectionTitleColor: '#b6c1cd',
-          textSectionTitleDisabledColor: '#d9e1e8',
-          selectedDayBackgroundColor: '#00adf5',
-          selectedDayTextColor: '#ffffff',
-          todayTextColor: '#00adf5',
-          dayTextColor: '#2d4150',
-          textDisabledColor: '#d9e1e8',
-          dotColor: '#00adf5',
-          selectedDotColor: '#ffffff',
-          arrowColor: 'orange',
-          disabledArrowColor: '#d9e1e8',
-          monthTextColor: 'blue',
-          indicatorColor: 'blue',
-          textDayFontWeight: '300',
-          textMonthFontWeight: 'bold',
-          textDayHeaderFontWeight: '300',
-          textDayFontSize: 16,
-          textMonthFontSize: 16,
-          textDayHeaderFontSize: 16,
+          'stylesheet.calendar.main': {
+            dayContainer: {
+              borderColor: '#D1D3D4',
+              borderTopWidth: 1,
+              flex: 1,
+              height: nomalizes[70],
+            },
+            week: {
+              marginBottom: 0,
+              flexDirection: 'row',
+              justifyContent: 'space-around',
+            },
+          },
         }}
         current={'2022-04-17'}
         minDate={'2022-01-01'}
@@ -72,21 +86,14 @@ const CCalendar = () => {
         onMonthChange={month => {
           console.log('month changed', month);
         }}
-        hideArrows={false}
-        renderArrow={direction =>
-          direction === 'left' ? (
-            <Text style={{backgroundColor: 'red', width: 10, height: 10}} />
-          ) : (
-            <View style={{backgroundColor: 'blue', width: 10, height: 10}} />
-          )
-        }
-        hideExtraDays={true}
+        hideExtraDays={false}
         disableMonthChange={true}
         firstDay={1}
         hideDayNames={false}
         showWeekNumbers={false}
         onPressArrowLeft={subtractMonth => subtractMonth()}
         onPressArrowRight={addMonth => addMonth()}
+        hideArrows={true}
         disableArrowLeft={true}
         disableArrowRight={true}
         disableAllTouchEventsForDisabledDays={true}
