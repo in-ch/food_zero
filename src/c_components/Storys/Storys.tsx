@@ -7,6 +7,7 @@ import Story from './Story';
 
 const Container = styled.View`
   height: ${nomalizes[85]}px;
+  background-color: #f4f4f4;
 `;
 const SScrollView = styled.ScrollView`
   height: ${nomalizes[70]}px;

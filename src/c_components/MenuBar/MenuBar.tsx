@@ -9,6 +9,7 @@ const Container = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  background-color: #f4f4f4;
 `;
 const HambergerContainer = styled.View`
   width: ${nomalizes[70]}px;
