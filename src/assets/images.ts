@@ -4,6 +4,9 @@ const images = {
   kakao: require('./imgs/kakao-logo.png'),
   logo: require('./imgs/logo.png'),
   back: require('./icons/back-icon.png'),
+  search: require('./icons/search-icon.png'),
+  alarm: require('./icons/alarm-icon.png'),
+  hamber: require('./icons/hamber-icon.png'),
 };
 
 export default images;
