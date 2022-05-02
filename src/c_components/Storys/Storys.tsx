@@ -1,17 +1,24 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import {Text, View} from 'react-native';
+
 import {nomalizes} from '@utills/constants';
 import Story from './Story';
-import {Text} from 'react-native';
+
 const Container = styled.View`
-  width: 100%;
+  height: ${nomalizes[85]}px;
+`;
+const SScrollView = styled.ScrollView`
+  height: ${nomalizes[70]}px;
+`;
+const Wrapper = styled.View`
   height: ${nomalizes[70]}px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   padding-left: ${nomalizes[9]}px;
-  margin-bottom: ${nomalizes[9]}px;
+  margin-top: ${nomalizes[5]}px;
 `;
 const MainStory = styled.View`
   width: ${nomalizes[50]}px;
@@ -33,17 +40,25 @@ const NameContainer = styled.View`
 const Storys = () => {
   return (
     <Container>
-      <MainStory>
-        <Profile />
-        <NameContainer>
-          <Text>백무혀니</Text>
-        </NameContainer>
-      </MainStory>
+      <SScrollView horizontal={true} showsHorizontalScrollIndicator={true}>
+        <Wrapper>
+          <MainStory>
+            <Profile />
+            <NameContainer>
+              <Text>백무혀니</Text>
+            </NameContainer>
+          </MainStory>
 
-      <Story />
-      <Story />
-      <Story />
-      <Story />
+          <Story />
+          <Story />
+          <Story />
+          <Story />
+          <Story />
+          <Story />
+
+          <View style={{width: nomalizes[5]}} />
+        </Wrapper>
+      </SScrollView>
     </Container>
   );
 };
