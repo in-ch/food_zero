@@ -1,21 +1,14 @@
 import React from 'react';
+import {Text} from 'react-native';
 import styled from 'styled-components/native';
 import {nomalizes} from '@utills/constants';
-import Story from './Story';
-import {Text} from 'react-native';
+
 const Container = styled.View`
-  width: 100%;
-  height: ${nomalizes[70]}px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  padding-left: ${nomalizes[9]}px;
-  margin-bottom: ${nomalizes[9]}px;
-`;
-const MainStory = styled.View`
   width: ${nomalizes[50]}px;
   height: ${nomalizes[70]}px;
+  display: flex;
+  flex-direction: column;
+  margin-left: ${nomalizes[10]}px;
 `;
 const Profile = styled.View`
   background-color: #a0a0a0;
@@ -30,22 +23,15 @@ const NameContainer = styled.View`
   align-items: flex-end;
   margin-top: ${nomalizes[5]}px;
 `;
-const Storys = () => {
+const Story = () => {
   return (
     <Container>
-      <MainStory>
-        <Profile />
-        <NameContainer>
-          <Text>백무혀니</Text>
-        </NameContainer>
-      </MainStory>
-
-      <Story />
-      <Story />
-      <Story />
-      <Story />
+      <Profile />
+      <NameContainer>
+        <Text>아무 이름</Text>
+      </NameContainer>
     </Container>
   );
 };
 
-export default Storys;
+export default Story;
