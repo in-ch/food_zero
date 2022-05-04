@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useRef} from 'react';
 import styled from 'styled-components/native';
 import {cHeight, cWidth, nomalizes} from '@utills/constants';
 import Images from 'assets';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
+import {Animated} from 'react-native';
 
 const Container = styled.View`
   width: 100%;
@@ -45,7 +46,6 @@ const SidebarContainer = styled.View<ContainerProps>`
   height: ${cHeight + nomalizes[50]}px;
   background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
-  width: ${props => (props.show ? cWidth : 0)}px;
   top: 0px;
   left: 0px;
   z-index: 2;
@@ -66,16 +66,31 @@ const Extra = styled.View`
   width: ${cWidth * 0.3};
   height: ${cHeight + nomalizes[50]}px;
 `;
+const AnimatedContainer = Animated.createAnimatedComponent(SidebarContainer);
 interface ContainerProps {
   show: boolean;
 }
 
 const MenuBar = () => {
-  const [show, setShow] = useState(false);
+  const animatedValue = useRef(new Animated.Value(0)).current;
+  const onShow = () => {
+    Animated.timing(animatedValue, {
+      toValue: cWidth,
+      duration: 250,
+      useNativeDriver: false,
+    }).start();
+  };
+  const onHide = () => {
+    Animated.timing(animatedValue, {
+      toValue: 0,
+      duration: 250,
+      useNativeDriver: false,
+    }).start();
+  };
   return (
     <>
       <Container>
-        <HambergerContainer onPress={() => setShow(true)}>
+        <HambergerContainer onPress={onShow}>
           <Img source={Images.hamber} />
         </HambergerContainer>
         <LogoText>Fooro</LogoText>
@@ -89,14 +104,14 @@ const MenuBar = () => {
           <Img source={Images.search} />
         </SearchAlarmContainer>
       </Container>
-      <SidebarContainer show={show}>
+      <AnimatedContainer style={{width: animatedValue}}>
         <Wrapper>
           <Main />
-          <TouchableWithoutFeedback onPress={() => setShow(false)}>
+          <TouchableWithoutFeedback onPress={onHide}>
             <Extra />
           </TouchableWithoutFeedback>
         </Wrapper>
-      </SidebarContainer>
+      </AnimatedContainer>
     </>
   );
 };
