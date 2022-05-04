@@ -1,12 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
 
 import React from 'react';
+import {View} from 'react-native';
 import CCalendar from '@components/Calendar/Calendar';
 import {statusBarHeight} from '@utills/constants';
 import {SizedBox} from '@components/SizedBox';
-import MenuBar from '~/c_components/MenuBar/MenuBar';
-import Storys from '~/c_components/Storys/Storys';
-import {View} from 'react-native';
+import MenuBar from '@components/MenuBar/MenuBar';
+import Storys from '@components/Storys/Storys';
 
 const HomePresenter = () => {
   return (
