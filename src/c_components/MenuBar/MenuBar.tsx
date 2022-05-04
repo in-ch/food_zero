@@ -1,11 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useRef} from 'react';
 import styled from 'styled-components/native';
-import {cHeight, cWidth, nomalizes} from '@utills/constants';
-import Images from 'assets';
-import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import {Animated, Image, Text} from 'react-native';
-import {cssUtil} from '~/utills/cssUtil';
+import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
+
+import {cHeight, cWidth, nomalizes} from '@utills/constants';
+import {cssUtil} from '@utills/cssUtil';
+import Images from 'assets';
 
 const Container = styled.View`
   width: 100%;
@@ -101,6 +102,35 @@ const ProfileNickname = styled.Text`
   font-size: ${nomalizes[14]}px;
   font-weight: bold;
 `;
+const CategoryContainer = styled.View`
+  width: 100%;
+  height: ${nomalizes[130]}px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+`;
+const TextContainer = styled.TouchableOpacity`
+  width: 95%;
+  margin-left: 2.5%;
+  height: ${nomalizes[18]}px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: ${nomalizes[10]}px;
+  margin-bottom: ${nomalizes[10]}px;
+`;
+const SettingContainer = styled.View`
+  width: 100%;
+  height: ${nomalizes[160]}px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+`;
 
 const AnimatedContainer = Animated.createAnimatedComponent(SidebarContainer);
 interface ContainerProps {
@@ -167,6 +197,45 @@ const MenuBar = () => {
                   source={Images.arrowLeft}
                 />
               </ProfileContainer>
+              <CategoryContainer
+                style={{
+                  borderBottomColor: '#000',
+                  borderBottomWidth: 1,
+                }}>
+                <TextContainer>
+                  <Text style={{fontSize: nomalizes[14]}}>이웃 관리</Text>
+                  <Image
+                    style={{
+                      width: nomalizes[6],
+                      height: nomalizes[6],
+                      marginLeft: nomalizes[4],
+                    }}
+                    source={Images.arrowLeft}
+                  />
+                </TextContainer>
+                <TextContainer>
+                  <Text style={{fontSize: nomalizes[14]}}>카테고리 관리</Text>
+                  <Image
+                    style={{
+                      width: nomalizes[6],
+                      height: nomalizes[6],
+                      marginLeft: nomalizes[4],
+                    }}
+                    source={Images.arrowLeft}
+                  />
+                </TextContainer>
+              </CategoryContainer>
+              <SettingContainer>
+                <TextContainer>
+                  <Text style={{fontSize: nomalizes[14]}}>알림설정</Text>
+                </TextContainer>
+                <TextContainer>
+                  <Text style={{fontSize: nomalizes[14]}}>환경설정</Text>
+                </TextContainer>
+                <TextContainer>
+                  <Text style={{fontSize: nomalizes[14]}}>로그아웃</Text>
+                </TextContainer>
+              </SettingContainer>
             </ContentWrapper>
           </Main>
           <TouchableWithoutFeedback onPress={onHide}>
