@@ -1,10 +1,14 @@
 import React from 'react';
+import {HomeProps} from './Home';
 import HomePresenter from './HomePresenter';
 
-const HomeContainer = () => {
+const HomeContainer = ({navigation}: HomeProps) => {
+  const GoToAlarm = () => {
+    navigation.navigate('Alarm', {});
+  };
   return (
     <>
-      <HomePresenter />
+      <HomePresenter GoToAlarm={GoToAlarm} />
     </>
   );
 };

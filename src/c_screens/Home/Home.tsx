@@ -1,10 +1,16 @@
+import {NavigationProp} from '@react-navigation/native';
 import React from 'react';
+import {RootTabParamList} from '~/navigation/RootNavigation';
 import HomeContainer from './HomeContainer';
 
-const Home = () => {
+export interface HomeProps {
+  navigation: NavigationProp<RootTabParamList, 'Home'>;
+}
+
+const Home = ({navigation}: HomeProps) => {
   return (
     <>
-      <HomeContainer />
+      <HomeContainer navigation={navigation} />
     </>
   );
 };

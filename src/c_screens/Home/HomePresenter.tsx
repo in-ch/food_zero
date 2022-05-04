@@ -8,7 +8,11 @@ import {SizedBox} from '@components/SizedBox';
 import MenuBar from '@components/MenuBar/MenuBar';
 import Storys from '@components/Storys/Storys';
 
-const HomePresenter = () => {
+interface Props {
+  GoToAlarm: () => void;
+}
+
+const HomePresenter = ({GoToAlarm}: Props) => {
   return (
     <View
       style={{
@@ -21,7 +25,7 @@ const HomePresenter = () => {
           backgroundColor: '#F4F4F4',
         }}
       />
-      <MenuBar />
+      <MenuBar GoToAlarm={GoToAlarm} />
       <Storys />
       <CCalendar />
     </View>

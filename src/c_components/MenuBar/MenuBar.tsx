@@ -133,11 +133,15 @@ const SettingContainer = styled.View`
 `;
 
 const AnimatedContainer = Animated.createAnimatedComponent(SidebarContainer);
+
+interface Props {
+  GoToAlarm: () => void;
+}
 interface ContainerProps {
   show: boolean;
 }
 
-const MenuBar = () => {
+const MenuBar = ({GoToAlarm}: Props) => {
   const animatedValue = useRef(new Animated.Value(0)).current;
   const onShow = () => {
     Animated.timing(animatedValue, {
@@ -161,12 +165,14 @@ const MenuBar = () => {
         </HambergerContainer>
         <LogoText>Fooro</LogoText>
         <SearchAlarmContainer>
-          <Img
-            style={{
-              marginRight: nomalizes[5],
-            }}
-            source={Images.alarm}
-          />
+          <TouchableWithoutFeedback onPress={GoToAlarm}>
+            <Img
+              style={{
+                marginRight: nomalizes[5],
+              }}
+              source={Images.alarm}
+            />
+          </TouchableWithoutFeedback>
           <Img source={Images.search} />
         </SearchAlarmContainer>
       </Container>
