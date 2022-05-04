@@ -7,6 +7,8 @@ const images = {
   search: require('./icons/search-icon.png'),
   alarm: require('./icons/alarm-icon.png'),
   hamber: require('./icons/hamber-icon.png'),
+  user: require('./icons/user-icon.png'),
+  arrowLeft: require('./icons/arrow-right-icon.png'),
 };
 
 export default images;

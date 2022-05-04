@@ -1,9 +1,11 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useRef} from 'react';
 import styled from 'styled-components/native';
 import {cHeight, cWidth, nomalizes} from '@utills/constants';
 import Images from 'assets';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
-import {Animated} from 'react-native';
+import {Animated, Image, Text} from 'react-native';
+import {cssUtil} from '~/utills/cssUtil';
 
 const Container = styled.View`
   width: 100%;
@@ -61,11 +63,45 @@ const Main = styled.View`
   width: ${cWidth * 0.7};
   height: ${cHeight + nomalizes[50]}px;
   background-color: white;
+  display: flex;
+  ${cssUtil.doubleCenter};
 `;
 const Extra = styled.View`
   width: ${cWidth * 0.3};
   height: ${cHeight + nomalizes[50]}px;
 `;
+const ContentWrapper = styled.View`
+  width: 80%;
+  height: ${cHeight}px;
+`;
+const ProfileContainer = styled.View`
+  width: 100%;
+  height: ${nomalizes[130]}px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+`;
+const Profile = styled.View`
+  width: ${nomalizes[50]}px;
+  height: ${nomalizes[50]}px;
+  border-radius: ${nomalizes[25]}px;
+  background-color: #ececec;
+  display: flex;
+  ${cssUtil.doubleCenter};
+  overflow: hidden;
+`;
+const ProfileNicknameContainer = styled.View`
+  max-width: 60%;
+  height: ${nomalizes[15]}px;
+  text-overflow: ellipsis;
+`;
+const ProfileNickname = styled.Text`
+  margin-left: ${nomalizes[15]}px;
+  font-size: ${nomalizes[14]}px;
+  font-weight: bold;
+`;
+
 const AnimatedContainer = Animated.createAnimatedComponent(SidebarContainer);
 interface ContainerProps {
   show: boolean;
@@ -106,7 +142,33 @@ const MenuBar = () => {
       </Container>
       <AnimatedContainer style={{width: animatedValue}}>
         <Wrapper>
-          <Main />
+          <Main>
+            <ContentWrapper>
+              <ProfileContainer
+                style={{borderBottomColor: '#000', borderBottomWidth: 1}}>
+                <Profile>
+                  <Image
+                    style={{
+                      width: nomalizes[50],
+                      height: nomalizes[50],
+                    }}
+                    source={Images.user}
+                  />
+                </Profile>
+                <ProfileNicknameContainer>
+                  <ProfileNickname numberOfLines={1}>닉네임</ProfileNickname>
+                </ProfileNicknameContainer>
+                <Image
+                  style={{
+                    width: nomalizes[6],
+                    height: nomalizes[6],
+                    marginLeft: nomalizes[4],
+                  }}
+                  source={Images.arrowLeft}
+                />
+              </ProfileContainer>
+            </ContentWrapper>
+          </Main>
           <TouchableWithoutFeedback onPress={onHide}>
             <Extra />
           </TouchableWithoutFeedback>
