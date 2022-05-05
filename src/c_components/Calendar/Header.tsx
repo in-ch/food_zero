@@ -30,7 +30,7 @@ const Row = styled.View`
 const TText = styled.Text`
   font-size: ${nomalizes[16]}px;
   font-weight: bold;
-  width: ${nomalizes[90]}px;
+  padding-right: ${nomalizes[5]}px;
 `;
 const AddButton = styled.TouchableOpacity`
   width: ${nomalizes[40]}px;
