@@ -5,12 +5,14 @@ import Login from '../c_screens/Login/Login';
 import InputProfile from '../c_screens/Login/Pages/InputProfile/InputProfile';
 import Alarm from '~/c_screens/Alarm/Alarm';
 import Search from '~/c_screens/Search/Search';
+import FoodAdd from '~/c_screens/FoodAdd/FoodAdd';
 
 export type RootTabParamList = {
   Home: {};
   Login: {};
   Alarm: {};
   Search: {};
+  FoodAdd: {};
   InputProfile: {};
 };
 
@@ -26,6 +28,7 @@ const RootNavigation = () => {
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Alarm" component={Alarm} />
       <Stack.Screen name="Search" component={Search} />
+      <Stack.Screen name="FoodAdd" component={FoodAdd} />
     </Stack.Navigator>
   );
 };

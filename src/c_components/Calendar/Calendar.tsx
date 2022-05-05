@@ -30,9 +30,10 @@ const TText = styled.Text`
 
 interface DayTextProps {
   disabled: string;
+  GoToFoodAdd: () => void;
 }
 
-const CCalendar = () => {
+const CCalendar = ({GoToFoodAdd}: Props) => {
   return (
     <>
       <CalendarList
@@ -100,7 +101,7 @@ const CCalendar = () => {
         renderHeader={date => {
           return (
             <>
-              <Header date={date} />
+              <Header date={date} GoToFoodAdd={GoToFoodAdd} />
             </>
           );
         }}

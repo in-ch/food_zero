@@ -48,9 +48,10 @@ const AddButtonText = styled.Text`
 `;
 interface Props {
   date: string;
+  GoToFoodAdd: () => void;
 }
 
-const Header = ({date}: Props) => {
+const Header = ({date, GoToFoodAdd}: Props) => {
   const ddate = new Date(date);
   const month = ddate.getMonth();
   const year = ddate.getFullYear();
@@ -79,7 +80,7 @@ const Header = ({date}: Props) => {
               source={images.calendar}
             />
           </TouchableWithoutFeedback>
-          <AddButton>
+          <AddButton onPress={GoToFoodAdd}>
             <AddButtonText>추가하기</AddButtonText>
           </AddButton>
         </Row>

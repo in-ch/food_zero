@@ -9,9 +9,16 @@ const HomeContainer = ({navigation}: HomeProps) => {
   const GoToSearch = () => {
     navigation.navigate('Search', {});
   };
+  const GoToFoodAdd = () => {
+    navigation.navigate('FoodAdd', {});
+  };
   return (
     <>
-      <HomePresenter GoToAlarm={GoToAlarm} GoToSearch={GoToSearch} />
+      <HomePresenter
+        GoToAlarm={GoToAlarm}
+        GoToSearch={GoToSearch}
+        GoToFoodAdd={GoToFoodAdd}
+      />
     </>
   );
 };
