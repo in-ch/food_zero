@@ -6,7 +6,7 @@ import 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 
 import Header from '@components/Header/Header';
-import {nomalizes} from '~/utills/constants';
+import {nomalizes} from '@utills/constants';
 import MyRefrigerator from './routes/MyRefrigerator';
 import FriendRefrigerator from './routes/FriendRefrigerator';
 
