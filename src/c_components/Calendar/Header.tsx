@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, View} from 'react-native';
+import {Image} from 'react-native';
 import styled from 'styled-components/native';
 import {nomalizes} from '@utills/constants';
 import images from '@assets/images';

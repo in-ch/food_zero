@@ -12,6 +12,7 @@ const images = {
   arrowDown: require('./icons/arrow-down-icon.png'),
   calendar: require('./icons/calendar-icon.png'),
   account: require('./icons/account-icon.png'),
+  plus: require('./icons/plus-icon.png'),
 };
 
 export default images;

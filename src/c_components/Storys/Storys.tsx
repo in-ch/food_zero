@@ -6,8 +6,8 @@ import {nomalizes} from '@utills/constants';
 import Story from './Story';
 
 const Container = styled.View`
-  height: ${nomalizes[85]}px;
-  background-color: #f4f4f4;
+  height: ${nomalizes[75]}px;
+  background-color: #f5f5f5;
 `;
 const SScrollView = styled.ScrollView`
   height: ${nomalizes[70]}px;
@@ -55,7 +55,7 @@ const Storys = () => {
           <Story />
           <Story />
           <Story />
-          <Story />
+          <Story isPlus={true} />
 
           <View style={{width: nomalizes[5]}} />
         </Wrapper>
