@@ -6,9 +6,12 @@ const HomeContainer = ({navigation}: HomeProps) => {
   const GoToAlarm = () => {
     navigation.navigate('Alarm', {});
   };
+  const GoToSearch = () => {
+    navigation.navigate('Search', {});
+  };
   return (
     <>
-      <HomePresenter GoToAlarm={GoToAlarm} />
+      <HomePresenter GoToAlarm={GoToAlarm} GoToSearch={GoToSearch} />
     </>
   );
 };

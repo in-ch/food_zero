@@ -136,12 +136,13 @@ const AnimatedContainer = Animated.createAnimatedComponent(SidebarContainer);
 
 interface Props {
   GoToAlarm: () => void;
+  GoToSearch: () => void;
 }
 interface ContainerProps {
   show: boolean;
 }
 
-const MenuBar = ({GoToAlarm}: Props) => {
+const MenuBar = ({GoToAlarm, GoToSearch}: Props) => {
   const animatedValue = useRef(new Animated.Value(0)).current;
   const onShow = () => {
     Animated.timing(animatedValue, {
@@ -173,7 +174,9 @@ const MenuBar = ({GoToAlarm}: Props) => {
               source={Images.alarm}
             />
           </TouchableWithoutFeedback>
-          <Img source={Images.search} />
+          <TouchableWithoutFeedback onPress={GoToSearch}>
+            <Img source={Images.search} />
+          </TouchableWithoutFeedback>
         </SearchAlarmContainer>
       </Container>
       <AnimatedContainer style={{width: animatedValue}}>

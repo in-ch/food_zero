@@ -4,11 +4,13 @@ import Home from '../c_screens/Home/Home';
 import Login from '../c_screens/Login/Login';
 import InputProfile from '../c_screens/Login/Pages/InputProfile/InputProfile';
 import Alarm from '~/c_screens/Alarm/Alarm';
+import Search from '~/c_screens/Search/Search';
 
 export type RootTabParamList = {
   Home: {};
   Login: {};
   Alarm: {};
+  Search: {};
   InputProfile: {};
 };
 
@@ -23,6 +25,7 @@ const RootNavigation = () => {
       <Stack.Screen name="InputProfile" component={InputProfile} />
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Alarm" component={Alarm} />
+      <Stack.Screen name="Search" component={Search} />
     </Stack.Navigator>
   );
 };

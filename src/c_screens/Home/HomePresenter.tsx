@@ -10,9 +10,10 @@ import Storys from '@components/Storys/Storys';
 
 interface Props {
   GoToAlarm: () => void;
+  GoToSearch: () => void;
 }
 
-const HomePresenter = ({GoToAlarm}: Props) => {
+const HomePresenter = ({GoToAlarm, GoToSearch}: Props) => {
   return (
     <View
       style={{
@@ -25,7 +26,7 @@ const HomePresenter = ({GoToAlarm}: Props) => {
           backgroundColor: '#F4F4F4',
         }}
       />
-      <MenuBar GoToAlarm={GoToAlarm} />
+      <MenuBar GoToAlarm={GoToAlarm} GoToSearch={GoToSearch} />
       <Storys />
       <CCalendar />
     </View>
