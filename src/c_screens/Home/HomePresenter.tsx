@@ -12,9 +12,15 @@ interface Props {
   GoToAlarm: () => void;
   GoToSearch: () => void;
   GoToFoodAdd: () => void;
+  GoToAgenda: () => void;
 }
 
-const HomePresenter = ({GoToAlarm, GoToSearch, GoToFoodAdd}: Props) => {
+const HomePresenter = ({
+  GoToAlarm,
+  GoToSearch,
+  GoToFoodAdd,
+  GoToAgenda,
+}: Props) => {
   return (
     <View
       style={{
@@ -29,7 +35,7 @@ const HomePresenter = ({GoToAlarm, GoToSearch, GoToFoodAdd}: Props) => {
       />
       <MenuBar GoToAlarm={GoToAlarm} GoToSearch={GoToSearch} />
       <Storys />
-      <CCalendar GoToFoodAdd={GoToFoodAdd} />
+      <CCalendar GoToFoodAdd={GoToFoodAdd} GoToAgenda={GoToAgenda} />
     </View>
   );
 };

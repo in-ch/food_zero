@@ -6,9 +6,11 @@ import InputProfile from '../c_screens/Login/Pages/InputProfile/InputProfile';
 import Alarm from '~/c_screens/Alarm/Alarm';
 import Search from '~/c_screens/Search/Search';
 import FoodAdd from '~/c_screens/FoodAdd/FoodAdd';
+import Agenda from '~/c_screens/Agenda/Agenda';
 
 export type RootTabParamList = {
   Home: {};
+  Agenda: {};
   Login: {};
   Alarm: {};
   Search: {};
@@ -26,6 +28,7 @@ const RootNavigation = () => {
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="InputProfile" component={InputProfile} />
       <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Agenda" component={Agenda} />
       <Stack.Screen name="Alarm" component={Alarm} />
       <Stack.Screen name="Search" component={Search} />
       <Stack.Screen name="FoodAdd" component={FoodAdd} />

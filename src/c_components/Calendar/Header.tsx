@@ -49,9 +49,10 @@ const AddButtonText = styled.Text`
 interface Props {
   date: string;
   GoToFoodAdd: () => void;
+  GoToAgenda: () => void;
 }
 
-const Header = ({date, GoToFoodAdd}: Props) => {
+const Header = ({date, GoToFoodAdd, GoToAgenda}: Props) => {
   const ddate = new Date(date);
   const month = ddate.getMonth();
   const year = ddate.getFullYear();
@@ -62,16 +63,18 @@ const Header = ({date, GoToFoodAdd}: Props) => {
           <TText>
             {year}년 {month + 1}월
           </TText>
-          <Image
-            style={{
-              width: nomalizes[5],
-              height: nomalizes[5],
-            }}
-            source={images.arrowDown}
-          />
+          <TouchableWithoutFeedback>
+            <Image
+              style={{
+                width: nomalizes[5],
+                height: nomalizes[5],
+              }}
+              source={images.arrowDown}
+            />
+          </TouchableWithoutFeedback>
         </Row>
         <Row>
-          <TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={GoToAgenda}>
             <Image
               style={{
                 width: nomalizes[15],

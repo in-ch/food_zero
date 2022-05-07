@@ -12,12 +12,16 @@ const HomeContainer = ({navigation}: HomeProps) => {
   const GoToFoodAdd = () => {
     navigation.navigate('FoodAdd', {});
   };
+  const GoToAgenda = () => {
+    navigation.navigate('Agenda', {});
+  };
   return (
     <>
       <HomePresenter
         GoToAlarm={GoToAlarm}
         GoToSearch={GoToSearch}
         GoToFoodAdd={GoToFoodAdd}
+        GoToAgenda={GoToAgenda}
       />
     </>
   );
