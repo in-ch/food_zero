@@ -7,12 +7,15 @@ import {statusBarHeight} from '@utills/constants';
 import {SizedBox} from '@components/SizedBox';
 import MenuBar from '@components/MenuBar/MenuBar';
 import Storys from '@components/Storys/Storys';
+import AgendaCalendar from '~/c_components/AgendaCalendar/AgendaCalendar';
 
 interface Props {
   GoToAlarm: () => void;
   GoToSearch: () => void;
   GoToFoodAdd: () => void;
   GoToAgenda: () => void;
+  goAgenda: boolean;
+  GoToAgendaCal: () => void;
 }
 
 const HomePresenter = ({
@@ -20,6 +23,8 @@ const HomePresenter = ({
   GoToSearch,
   GoToFoodAdd,
   GoToAgenda,
+  goAgenda,
+  GoToAgendaCal,
 }: Props) => {
   return (
     <View
@@ -35,7 +40,11 @@ const HomePresenter = ({
       />
       <MenuBar GoToAlarm={GoToAlarm} GoToSearch={GoToSearch} />
       <Storys />
-      <CCalendar GoToFoodAdd={GoToFoodAdd} GoToAgenda={GoToAgenda} />
+      {goAgenda ? (
+        <AgendaCalendar />
+      ) : (
+        <CCalendar GoToFoodAdd={GoToFoodAdd} GoToAgenda={GoToAgendaCal} />
+      )}
     </View>
   );
 };

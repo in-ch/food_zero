@@ -1,103 +1,219 @@
-import React from 'react';
-import {Agenda} from 'react-native-calendars';
+import React, {Component} from 'react';
+import {Alert, StyleSheet, View, TouchableOpacity, Image} from 'react-native';
+import {
+  Agenda,
+  DateData,
+  AgendaEntry,
+  AgendaSchedule,
+} from 'react-native-calendars';
+import styled from 'styled-components/native';
+import images from '~/assets/images';
+import {nomalizes} from '~/utills/constants';
+import {cssUtil} from '~/utills/cssUtil';
 
-const AgendaCalendar = () => {
-  return (
-    <>
-      <Agenda
-        // The list of items that have to be displayed in agenda. If you want to render item as empty date
-        // the value of date key has to be an empty array []. If there exists no value for date key it is
-        // considered that the date in question is not yet loaded
-        items={{
-          '2012-05-22': [{name: 'item 1 - any js object'}],
-          '2012-05-23': [{name: 'item 2 - any js object', height: 80}],
-          '2012-05-24': [],
-          '2012-05-25': [
-            {name: 'item 3 - any js object'},
-            {name: 'any js object'},
-          ],,
-        }}
-        // Callback that gets called when items for a certain month should be loaded (month became visible)
-        loadItemsForMonth={month => {
-          console.log('trigger items loading');
-        }}
-        // Callback that fires when the calendar is opened or closed
-        onCalendarToggled={calendarOpened => {
-          console.log(calendarOpened);
-        }}
-        // Callback that gets called on day press
-        onDayPress={day => {
-          console.log('day pressed');
-        }}
-        // Callback that gets called when day changes while scrolling agenda list
-        onDayChange={day => {
-          console.log('day changed');
-        }}
-        // Initially selected day
-        selected={'2012-05-16'}
-        // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined
-        minDate={'2012-05-10'}
-        // Maximum date that can be selected, dates after maxDate will be grayed out. Default = undefined
-        maxDate={'2012-05-30'}
-        // Max amount of months allowed to scroll to the past. Default = 50
-        pastScrollRange={50}
-        // Max amount of months allowed to scroll to the future. Default = 50
-        futureScrollRange={50}
-        // Specify how each item should be rendered in agenda
-        renderItem={(item, firstItemInDay) => {
-          return <View />;
-        }}
-        // Specify how each date should be rendered. day can be undefined if the item is not first in that day
-        renderDay={(day, item) => {
-          return <View />;
-        }}
-        // Specify how empty date content with no items should be rendered
-        renderEmptyDate={() => {
-          return <View />;
-        }}
-        // Specify how agenda knob should look like
-        renderKnob={() => {
-          return <View />;
-        }}
-        // Specify what should be rendered instead of ActivityIndicator
-        renderEmptyData={() => {
-          return <View />;
-        }}
-        // Specify your item comparison function for increased performance
-        rowHasChanged={(r1, r2) => {
-          return r1.text !== r2.text;
-        }}
-        // Hide knob button. Default = false
-        hideKnob={true}
-        // When `true` and `hideKnob` prop is `false`, the knob will always be visible and the user will be able to drag the knob up and close the calendar. Default = false
-        showClosingKnob={false}
-        // By default, agenda dates are marked if they have at least one item, but you can override this if needed
-        markedDates={{
-          '2012-05-16': {selected: true, marked: true},
-          '2012-05-17': {marked: true},
-          '2012-05-18': {disabled: true},,
-        }}
-        // If disabledByDefault={true} dates flagged as not disabled will be enabled. Default = false
-        disabledByDefault={true}
-        // If provided, a standard RefreshControl will be added for "Pull to Refresh" functionality. Make sure to also set the refreshing prop correctly
-        onRefresh={() => console.log('refreshing...')}
-        // Set this true while waiting for new data from a refresh
-        refreshing={false}
-        // Add a custom RefreshControl component, used to provide pull-to-refresh functionality for the ScrollView
-        refreshControl={null}
-        // Agenda theme
-        theme={{
-          ...calendarTheme,
-          agendaDayTextColor: 'yellow',
-          agendaDayNumColor: 'green',
-          agendaTodayColor: 'red',
-          agendaKnobColor: 'blue',,
-        }}
-        // Agenda container style
-        style={{}}
-      />
-    </>
-  );
+const Heading = styled.Text`
+  font-weight: bold;
+  font-size: ${nomalizes[12]}px;
+`;
+const RenderContainer = styled.View`
+  height: ${nomalizes[40]}px;
+  margin-top: ${nomalizes[5]}px;
+`;
+const RenderFlexOne = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: ${nomalizes[10]}px;
+  height: ${nomalizes[20]}px;
+  align-items: center;
+`;
+const Row = styled.View`
+  display: flex;
+  flex-direction: row;
+  ${cssUtil.doubleCenter};
+`;
+const FruitText = styled.Text`
+  margin-left: ${nomalizes[5]}px;
+  font-size: ${nomalizes[12]}px;
+`;
+const ConsumeDone = styled.View`
+  width: ${nomalizes[26]}px;
+  height: ${nomalizes[10]}px;
+  border-radius: ${nomalizes[2]}px;
+  margin-right: ${nomalizes[5]}px;
+  background-color: #ffd9d7;
+  display: flex;
+  ${cssUtil.doubleCenter};
+`;
+const ConsumeDoneText = styled.Text`
+  font-size: ${nomalizes[5]}px;
+  color: #ff6c63;
+`;
+const ConsumeDoneDate = styled.Text`
+  font-size: ${nomalizes[10]}px;
+  color: #a8a8a8;
+`;
+const Mark = styled.View`
+  width: ${nomalizes[8]}px;
+  height: ${nomalizes[8]}px;
+  border-radius: ${nomalizes[2]}px;
+  background-color: #637cff;
+`;
+const testIDs = {
+  menu: {
+    CONTAINER: 'menu',
+    CALENDARS: 'calendars_btn',
+    CALENDAR_LIST: 'calendar_list_btn',
+    HORIZONTAL_LIST: 'horizontal_list_btn',
+    AGENDA: 'agenda_btn',
+    EXPANDABLE_CALENDAR: 'expandable_calendar_btn',
+    WEEK_CALENDAR: 'week_calendar_btn',
+    TIMELINE_CALENDAR: 'timeline_calendar_btn',
+  },
+  calendars: {
+    CONTAINER: 'calendars',
+    FIRST: 'first_calendar',
+    LAST: 'last_calendar',
+  },
+  calendarList: {CONTAINER: 'calendarList'},
+  horizontalList: {CONTAINER: 'horizontalList'},
+  agenda: {
+    CONTAINER: 'agenda',
+    ITEM: 'item',
+  },
+  expandableCalendar: {CONTAINER: 'expandableCalendar'},
+  weekCalendar: {CONTAINER: 'weekCalendar'},
 };
 
-export default AgendaCalendar;
+interface State {
+  items?: AgendaSchedule;
+}
+
+export default class AgendaScreen extends Component<State> {
+  state: State = {
+    items: undefined,
+  };
+
+  render() {
+    return (
+      <Agenda
+        testID={testIDs.agenda.CONTAINER}
+        items={this.state.items}
+        loadItemsForMonth={this.loadItems}
+        selected={'2022-05-07'}
+        renderItem={this.renderItem}
+        renderEmptyDate={this.renderEmptyDate}
+        rowHasChanged={this.rowHasChanged}
+        showClosingKnob={true}
+        theme={{
+          agendaDayNumColor: '#000',
+          agendaTodayColor: '#FF6C63',
+          agendaKnobColor: '#e4e4e4',
+          dotColor: '#fff',
+          selectedDayBackgroundColor: '#FF6C63',
+          stylesheet: {
+            marking: {
+              display: 'none',
+            },
+          },
+        }}
+      />
+    );
+  }
+
+  loadItems = (day: DateData) => {
+    const items = this.state.items || {};
+    setTimeout(() => {
+      for (let i = -15; i < 85; i++) {
+        const time = day.timestamp + i * 24 * 60 * 60 * 1000;
+        const strTime = this.timeToString(time);
+
+        if (!items[strTime]) {
+          items[strTime] = [];
+
+          const numItems = Math.floor(Math.random() * 3 + 1);
+          for (let j = 0; j < numItems; j++) {
+            items[strTime].push({
+              name: 'Item for ' + strTime + ' #' + j,
+              height: Math.max(50, Math.floor(Math.random() * 150)),
+              day: strTime,
+            });
+          }
+        }
+      }
+
+      const newItems: AgendaSchedule = {};
+      Object.keys(items).forEach(key => {
+        newItems[key] = items[key];
+      });
+      this.setState({
+        items: newItems,
+      });
+    }, 1000);
+  };
+
+  renderItem = (reservation: AgendaEntry) => {
+    return (
+      <TouchableOpacity
+        testID={testIDs.agenda.ITEM}
+        style={[styles.item]}
+        onPress={() => Alert.alert(reservation.name)}>
+        {/* vvv */}
+        <Heading>과일</Heading>
+        <RenderContainer>
+          <RenderFlexOne>
+            <Row>
+              <Mark />
+              <FruitText>사과</FruitText>
+            </Row>
+            <Row>
+              <ConsumeDone>
+                <ConsumeDoneText>소비 완료</ConsumeDoneText>
+              </ConsumeDone>
+              <Image
+                style={{
+                  width: nomalizes[10],
+                  height: nomalizes[10],
+                }}
+                source={images.setting}
+              />
+            </Row>
+          </RenderFlexOne>
+          <RenderFlexOne>
+            <ConsumeDoneDate>22.05.01 ~ 23.05.01</ConsumeDoneDate>
+            <ConsumeDoneDate>비공개</ConsumeDoneDate>
+          </RenderFlexOne>
+        </RenderContainer>
+      </TouchableOpacity>
+    );
+  };
+
+  renderEmptyDate = () => {
+    return <View style={styles.emptyDate} />;
+  };
+
+  rowHasChanged = (r1: AgendaEntry, r2: AgendaEntry) => {
+    return r1.name !== r2.name;
+  };
+
+  timeToString(time: number) {
+    const date = new Date(time);
+    return date.toISOString().split('T')[0];
+  }
+}
+
+const styles = StyleSheet.create({
+  item: {
+    backgroundColor: 'white',
+    flex: 1,
+    borderRadius: 8,
+    padding: 20,
+    marginRight: 10,
+    marginTop: 17,
+  },
+  emptyDate: {
+    height: 15,
+    flex: 1,
+    paddingTop: 30,
+  },
+});

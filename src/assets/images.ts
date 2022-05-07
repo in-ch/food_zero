@@ -13,6 +13,7 @@ const images = {
   calendar: require('./icons/calendar-icon.png'),
   account: require('./icons/account-icon.png'),
   plus: require('./icons/plus-icon.png'),
+  setting: require('./icons/setting-icon.png'),
 };
 
 export default images;
