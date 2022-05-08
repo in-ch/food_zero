@@ -9,8 +9,8 @@ import {nomalizes, statusBarHeight} from '@utills/constants';
 import {SizedBox} from '@components/SizedBox';
 import MenuBar from '@components/MenuBar/MenuBar';
 import Storys from '@components/Storys/Storys';
-import {cssUtil} from '~/utills/cssUtil';
-import images from '~/assets/images';
+import {cssUtil} from '@utills/cssUtil';
+import images from '@assets/images';
 
 const ModalBackground = styled.View`
   background-color: rgba(0, 0, 0, 0);

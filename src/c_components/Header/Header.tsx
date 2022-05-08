@@ -45,8 +45,8 @@ const Header = ({text, back}: HeaderProps) => {
       <SizedBox.Custom margin={statusBarHeight} />
       <Wrapper
         style={{
-          borderBottomColor: '#cfcfcf',
-          borderBottomWidth: 2,
+          borderBottomColor: '#e2e2e2',
+          borderBottomWidth: 1,
         }}>
         <IconContatiner onPress={back}>
           <Image

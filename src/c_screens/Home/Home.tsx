@@ -1,6 +1,6 @@
 import {NavigationProp} from '@react-navigation/native';
 import React from 'react';
-import {RootTabParamList} from '~/navigation/RootNavigation';
+import {RootTabParamList} from '@navigation/RootNavigation';
 import HomeContainer from './HomeContainer';
 
 export interface HomeProps {

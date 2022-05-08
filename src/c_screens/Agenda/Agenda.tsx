@@ -1,10 +1,16 @@
+import {NavigationProp} from '@react-navigation/native';
 import React from 'react';
+import {RootTabParamList} from '@navigation/RootNavigation';
 import AgendaContainer from './AgendaContainer';
 
-const Agenda = () => {
+export interface AgendaProps {
+  navigation: NavigationProp<RootTabParamList, 'Agenda'>;
+}
+
+const Agenda = ({navigation}: AgendaProps) => {
   return (
     <>
-      <AgendaContainer />
+      <AgendaContainer navigation={navigation} />
     </>
   );
 };

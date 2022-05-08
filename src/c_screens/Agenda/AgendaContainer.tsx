@@ -1,10 +1,14 @@
 import React from 'react';
 import AgendaPresenter from './AgendaPresenter';
+import {AgendaProps} from './Agenda';
 
-const AgendaContainer = () => {
+const AgendaContainer = ({navigation}: AgendaProps) => {
+  const GoBack = () => {
+    navigation.goBack();
+  };
   return (
     <>
-      <AgendaPresenter />
+      <AgendaPresenter GoBack={GoBack} />
     </>
   );
 };

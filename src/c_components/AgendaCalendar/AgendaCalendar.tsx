@@ -7,9 +7,9 @@ import {
   AgendaSchedule,
 } from 'react-native-calendars';
 import styled from 'styled-components/native';
-import images from '~/assets/images';
-import {nomalizes} from '~/utills/constants';
-import {cssUtil} from '~/utills/cssUtil';
+import images from '@assets/images';
+import {nomalizes} from '@utills/constants';
+import {cssUtil} from '@utills/cssUtil';
 
 const Heading = styled.Text`
   font-weight: bold;
