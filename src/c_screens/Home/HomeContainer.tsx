@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {HomeProps} from './Home';
 import HomePresenter from './HomePresenter';
 
@@ -10,16 +10,13 @@ const HomeContainer = ({navigation}: HomeProps) => {
     navigation.navigate('Search', {});
   };
   const GoToFoodAdd = () => {
+    console.log('Hello');
     navigation.navigate('FoodAdd', {});
   };
   const GoToAgenda = () => {
     navigation.navigate('Agenda', {});
   };
 
-  const [goAgenda, setGoAgenda] = useState<boolean>(false);
-  const GoToAgendaCal = () => {
-    setGoAgenda(!goAgenda);
-  };
   return (
     <>
       <HomePresenter
@@ -27,8 +24,6 @@ const HomeContainer = ({navigation}: HomeProps) => {
         GoToSearch={GoToSearch}
         GoToFoodAdd={GoToFoodAdd}
         GoToAgenda={GoToAgenda}
-        goAgenda={goAgenda}
-        GoToAgendaCal={GoToAgendaCal}
       />
     </>
   );

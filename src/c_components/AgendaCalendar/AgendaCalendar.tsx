@@ -59,6 +59,25 @@ const Mark = styled.View`
   border-radius: ${nomalizes[2]}px;
   background-color: #637cff;
 `;
+const ModalBackground = styled.View`
+  background-color: rgba(0, 0, 0, 0);
+  padding: ${nomalizes[30]}px;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+`;
+const ModalButton = styled.TouchableOpacity`
+  width: ${nomalizes[40]}px;
+  height: ${nomalizes[40]}px;
+  border-radius: ${nomalizes[20]}px;
+  display: flex;
+  background-color: #ff6c63;
+  ${cssUtil.doubleCenter};
+`;
+
 const testIDs = {
   menu: {
     CONTAINER: 'menu',
@@ -96,28 +115,36 @@ export default class AgendaScreen extends Component<State> {
 
   render() {
     return (
-      <Agenda
-        testID={testIDs.agenda.CONTAINER}
-        items={this.state.items}
-        loadItemsForMonth={this.loadItems}
-        selected={'2022-05-07'}
-        renderItem={this.renderItem}
-        renderEmptyDate={this.renderEmptyDate}
-        rowHasChanged={this.rowHasChanged}
-        showClosingKnob={true}
-        theme={{
-          agendaDayNumColor: '#000',
-          agendaTodayColor: '#FF6C63',
-          agendaKnobColor: '#e4e4e4',
-          dotColor: '#fff',
-          selectedDayBackgroundColor: '#FF6C63',
-          stylesheet: {
-            marking: {
-              display: 'none',
-            },
-          },
-        }}
-      />
+      <>
+        <Agenda
+          testID={testIDs.agenda.CONTAINER}
+          items={this.state.items}
+          loadItemsForMonth={this.loadItems}
+          selected={'2022-05-07'}
+          renderItem={this.renderItem}
+          renderEmptyDate={this.renderEmptyDate}
+          rowHasChanged={this.rowHasChanged}
+          showClosingKnob={true}
+          theme={{
+            agendaDayNumColor: '#000',
+            agendaTodayColor: '#FF6C63',
+            agendaKnobColor: '#e4e4e4',
+            dotColor: '#fff',
+            selectedDayBackgroundColor: '#FF6C63',
+          }}
+        />
+        <ModalBackground>
+          <ModalButton>
+            <Image
+              style={{
+                width: nomalizes[18],
+                height: nomalizes[18],
+              }}
+              source={images.plusWhite}
+            />
+          </ModalButton>
+        </ModalBackground>
+      </>
     );
   }
 
@@ -158,7 +185,6 @@ export default class AgendaScreen extends Component<State> {
         testID={testIDs.agenda.ITEM}
         style={[styles.item]}
         onPress={() => Alert.alert(reservation.name)}>
-        {/* vvv */}
         <Heading>과일</Heading>
         <RenderContainer>
           <RenderFlexOne>

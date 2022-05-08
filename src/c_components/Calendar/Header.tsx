@@ -3,7 +3,6 @@ import {Image} from 'react-native';
 import styled from 'styled-components/native';
 import {nomalizes} from '@utills/constants';
 import images from '@assets/images';
-import {cssUtil} from '~/utills/cssUtil';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 // import moment from 'moment';
 // import 'moment/locale/ko';
@@ -32,27 +31,26 @@ const TText = styled.Text`
   font-weight: bold;
   padding-right: ${nomalizes[5]}px;
 `;
-const AddButton = styled.TouchableOpacity`
-  width: ${nomalizes[40]}px;
-  height: ${nomalizes[20]}px;
-  margin-left: ${nomalizes[5]}px;
-  border-radius: ${nomalizes[4]}px;
-  color: #fff;
-  background-color: #ff6c63;
-  display: flex;
-  ${cssUtil.doubleCenter};
-`;
-const AddButtonText = styled.Text`
-  color: #fff;
-  font-size: ${nomalizes[8]}px;
-`;
+// const AddButton = styled.TouchableOpacity`
+//   width: ${nomalizes[40]}px;
+//   height: ${nomalizes[20]}px;
+//   margin-left: ${nomalizes[5]}px;
+//   border-radius: ${nomalizes[4]}px;
+//   color: #fff;
+//   background-color: #ff6c63;
+//   display: flex;
+//   ${cssUtil.doubleCenter};
+// `;
+// const AddButtonText = styled.Text`
+//   color: #fff;
+//   font-size: ${nomalizes[8]}px;
+// `;
 interface Props {
   date: string;
-  GoToFoodAdd: () => void;
   GoToAgenda: () => void;
 }
 
-const Header = ({date, GoToFoodAdd, GoToAgenda}: Props) => {
+const Header = ({date, GoToAgenda}: Props) => {
   const ddate = new Date(date);
   const month = ddate.getMonth();
   const year = ddate.getFullYear();
@@ -83,9 +81,9 @@ const Header = ({date, GoToFoodAdd, GoToAgenda}: Props) => {
               source={images.calendar}
             />
           </TouchableWithoutFeedback>
-          <AddButton onPress={GoToFoodAdd}>
+          {/* <AddButton onPress={GoToFoodAdd}>
             <AddButtonText>추가하기</AddButtonText>
-          </AddButton>
+          </AddButton> */}
         </Row>
       </HHeader>
     </Container>

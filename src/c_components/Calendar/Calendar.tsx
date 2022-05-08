@@ -1,9 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {Calendar, CalendarList} from 'react-native-calendars';
+import {CalendarList} from 'react-native-calendars';
 import {View} from 'react-native';
 import styled from 'styled-components/native';
-import moment from 'moment';
 import 'moment/locale/ko';
 
 require('moment-timezone');
@@ -30,11 +29,10 @@ const TText = styled.Text`
 
 interface DayTextProps {
   disabled: string;
-  GoToFoodAdd: () => void;
   GoToAgenda: () => void;
 }
 
-const CCalendar = ({GoToFoodAdd, GoToAgenda}: Props) => {
+const CCalendar = ({GoToAgenda}: Props) => {
   return (
     <>
       <CalendarList
@@ -102,11 +100,7 @@ const CCalendar = ({GoToFoodAdd, GoToAgenda}: Props) => {
         renderHeader={date => {
           return (
             <>
-              <Header
-                date={date}
-                GoToFoodAdd={GoToFoodAdd}
-                GoToAgenda={GoToAgenda}
-              />
+              <Header date={date} GoToAgenda={GoToAgenda} />
             </>
           );
         }}

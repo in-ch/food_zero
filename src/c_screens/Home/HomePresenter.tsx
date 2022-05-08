@@ -1,21 +1,41 @@
 /* eslint-disable react-native/no-inline-styles */
 
 import React from 'react';
-import {View} from 'react-native';
+import {Image, View} from 'react-native';
+import styled from 'styled-components/native';
+
 import CCalendar from '@components/Calendar/Calendar';
-import {statusBarHeight} from '@utills/constants';
+import {nomalizes, statusBarHeight} from '@utills/constants';
 import {SizedBox} from '@components/SizedBox';
 import MenuBar from '@components/MenuBar/MenuBar';
 import Storys from '@components/Storys/Storys';
-import AgendaCalendar from '~/c_components/AgendaCalendar/AgendaCalendar';
+import {cssUtil} from '~/utills/cssUtil';
+import images from '~/assets/images';
+
+const ModalBackground = styled.View`
+  background-color: rgba(0, 0, 0, 0);
+  padding: ${nomalizes[30]}px;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+`;
+const ModalButton = styled.TouchableOpacity`
+  width: ${nomalizes[40]}px;
+  height: ${nomalizes[40]}px;
+  border-radius: ${nomalizes[20]}px;
+  display: flex;
+  background-color: #ff6c63;
+  ${cssUtil.doubleCenter};
+`;
 
 interface Props {
   GoToAlarm: () => void;
   GoToSearch: () => void;
   GoToFoodAdd: () => void;
   GoToAgenda: () => void;
-  goAgenda: boolean;
-  GoToAgendaCal: () => void;
 }
 
 const HomePresenter = ({
@@ -23,8 +43,6 @@ const HomePresenter = ({
   GoToSearch,
   GoToFoodAdd,
   GoToAgenda,
-  goAgenda,
-  GoToAgendaCal,
 }: Props) => {
   return (
     <View
@@ -40,11 +58,19 @@ const HomePresenter = ({
       />
       <MenuBar GoToAlarm={GoToAlarm} GoToSearch={GoToSearch} />
       <Storys />
-      {goAgenda ? (
-        <AgendaCalendar />
-      ) : (
-        <CCalendar GoToFoodAdd={GoToFoodAdd} GoToAgenda={GoToAgendaCal} />
-      )}
+      <CCalendar GoToAgenda={GoToAgenda} />
+
+      <ModalBackground>
+        <ModalButton onPress={GoToFoodAdd}>
+          <Image
+            style={{
+              width: nomalizes[18],
+              height: nomalizes[18],
+            }}
+            source={images.plusWhite}
+          />
+        </ModalButton>
+      </ModalBackground>
     </View>
   );
 };

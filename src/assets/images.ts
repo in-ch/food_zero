@@ -14,6 +14,7 @@ const images = {
   account: require('./icons/account-icon.png'),
   plus: require('./icons/plus-icon.png'),
   setting: require('./icons/setting-icon.png'),
+  plusWhite: require('./icons/plus-white-icon.png'),
 };
 
 export default images;
