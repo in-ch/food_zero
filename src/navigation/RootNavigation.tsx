@@ -1,12 +1,13 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import Home from '../c_screens/Home/Home';
-import Login from '../c_screens/Login/Login';
-import InputProfile from '../c_screens/Login/Pages/InputProfile/InputProfile';
-import Alarm from '~/c_screens/Alarm/Alarm';
-import Search from '~/c_screens/Search/Search';
-import FoodAdd from '~/c_screens/FoodAdd/FoodAdd';
-import Agenda from '~/c_screens/Agenda/Agenda';
+import Home from '@screens/Home/Home';
+import Login from '@screens/Login/Login';
+import InputProfile from '@screens/Login/Pages/InputProfile/InputProfile';
+import Alarm from '@screens/Alarm/Alarm';
+import Search from '@screens/Search/Search';
+import FoodAdd from '@screens/FoodAdd/FoodAdd';
+import Agenda from '@screens/Agenda/Agenda';
+import FoodSearchResult from '@screens/FoodAdd/pages/FoodSearchResult';
 
 export type RootTabParamList = {
   Home: {};
@@ -16,6 +17,7 @@ export type RootTabParamList = {
   Search: {};
   FoodAdd: {};
   InputProfile: {};
+  FoodSearchResult: {};
 };
 
 const RootNavigation = () => {
@@ -32,6 +34,7 @@ const RootNavigation = () => {
       <Stack.Screen name="Alarm" component={Alarm} />
       <Stack.Screen name="Search" component={Search} />
       <Stack.Screen name="FoodAdd" component={FoodAdd} />
+      <Stack.Screen name="FoodSearchResult" component={FoodSearchResult} />
     </Stack.Navigator>
   );
 };

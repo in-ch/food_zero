@@ -6,7 +6,15 @@ const FoodAddContainer = ({navigation}: FoodAddProps) => {
   const GoBack = () => {
     navigation.goBack();
   };
-  return <FoodAddPresenter GoBack={GoBack} />;
+  const GoToFoodSearchResult = () => {
+    navigation.navigate('FoodSearchResult', {});
+  };
+  return (
+    <FoodAddPresenter
+      GoBack={GoBack}
+      GoToFoodSearchResult={GoToFoodSearchResult}
+    />
+  );
 };
 
 export default FoodAddContainer;
