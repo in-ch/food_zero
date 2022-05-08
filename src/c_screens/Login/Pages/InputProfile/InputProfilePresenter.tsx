@@ -5,7 +5,7 @@ import styled from 'styled-components/native';
 import Header from '@components/Header/Header';
 import {SizedBox} from '@components/SizedBox';
 import {nomalizes, statusBarHeight} from '@utills/constants';
-import SizedInput from '@components/SizedInput';
+import TextInput from '@components/TextInput';
 import {cssUtil} from '@utills/cssUtil';
 
 interface Props {
@@ -46,7 +46,7 @@ const InputProfilePresenter = ({GoBack, GoToHome}: Props) => {
       <Header text="닉네임 생성" back={GoBack} />
       <SizedBox.Custom margin={nomalizes[50]} />
       <InputContainer>
-        <SizedInput
+        <TextInput
           value={nickname}
           setValue={(value: string) => setNickname(value)}
           maxLength={10}

@@ -7,7 +7,7 @@ import {cssUtil} from '@utills/cssUtil';
 import Header from '@components/Header/Header';
 import {RootTabParamList} from '@navigation/RootNavigation';
 import {NavigationProp} from '@react-navigation/native';
-import {SizedBox} from '~/c_components/SizedBox';
+import {SizedBox} from '@components/SizedBox';
 
 const Container = styled.View`
   flex: 1;
@@ -58,11 +58,16 @@ export interface FoodSearchResultProps {
 }
 
 const FoodSearchResult = ({navigation}: FoodSearchResultProps) => {
+  const GoToFoodAddInput = (text: string) => {
+    navigation.navigate('FoodAddInput', {text});
+  };
   return (
     <Container>
       <Header text="토마토" back={() => navigation.goBack()} />
-      <SizedBox.Custom margin={nomalizes[10]} />
-      <SearchResultBox style={{borderBottomWidth: 1}}>
+      <SizedBox.Custom margin={nomalizes[20]} />
+      <SearchResultBox
+        style={{borderBottomWidth: 1}}
+        onPress={() => GoToFoodAddInput('토마토')}>
         <SearchResultBoxHeading>토마토</SearchResultBoxHeading>
         <SizedBox.Custom margin={nomalizes[5]} />
         <SearchResultBoxTextContainer>
@@ -81,7 +86,9 @@ const FoodSearchResult = ({navigation}: FoodSearchResultProps) => {
           </HashTag>
         </SearchResultBoxTextContainer>
       </SearchResultBox>
-      <SearchResultBox style={{borderBottomWidth: 1}}>
+      <SearchResultBox
+        style={{borderBottomWidth: 1}}
+        onPress={() => GoToFoodAddInput('토마토')}>
         <SearchResultBoxHeading>토마토 무침</SearchResultBoxHeading>
         <SizedBox.Custom margin={nomalizes[5]} />
         <SearchResultBoxTextContainer>
@@ -100,7 +107,9 @@ const FoodSearchResult = ({navigation}: FoodSearchResultProps) => {
           </HashTag>
         </SearchResultBoxTextContainer>
       </SearchResultBox>
-      <SearchResultBox style={{borderBottomWidth: 1}}>
+      <SearchResultBox
+        style={{borderBottomWidth: 1}}
+        onPress={() => GoToFoodAddInput('토마토')}>
         <SearchResultBoxHeading>방울 토마토</SearchResultBoxHeading>
         <SizedBox.Custom margin={nomalizes[5]} />
         <SearchResultBoxTextContainer>

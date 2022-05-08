@@ -34,7 +34,7 @@ interface Props {
   setValue: (value: string) => void;
   maxLength: number;
 }
-const SizedInput = ({value, setValue, maxLength}: Props) => {
+const TextInput = ({value, setValue, maxLength}: Props) => {
   return (
     <Container>
       <TTextInput
@@ -53,4 +53,4 @@ const SizedInput = ({value, setValue, maxLength}: Props) => {
   );
 };
 
-export default SizedInput;
+export default TextInput;

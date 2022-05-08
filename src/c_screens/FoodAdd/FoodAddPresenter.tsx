@@ -4,8 +4,8 @@ import styled from 'styled-components/native';
 import Header from '@components/Header/Header';
 import SearchInput from '@components/SearchInput';
 import {nomalizes} from '@utills/constants';
-import {SizedBox} from '~/c_components/SizedBox';
-import CalendarResult from '~/c_components/Header/CalendarResult';
+import {SizedBox} from '@components/SizedBox';
+import TextBox from '@components/TextBox';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 
 const Container = styled.View`
@@ -18,6 +18,7 @@ const Container = styled.View`
 const Heading = styled.Text`
   font-size: ${nomalizes[14]}px;
   margin-bottom: ${nomalizes[10]}px;
+  color: #000;
 `;
 const SearchRelateView = styled.View`
   width: 100%;
@@ -60,7 +61,7 @@ const FoodAddPresenter = ({GoBack, GoToFoodSearchResult}: Props) => {
         <SizedBox.Custom margin={nomalizes[20]} />
 
         <Heading>등록일</Heading>
-        <CalendarResult />
+        <TextBox text="2022 / 05 / 08" />
       </Container>
     </>
   );
