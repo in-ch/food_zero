@@ -7,6 +7,7 @@ import {nomalizes} from '@utills/constants';
 import TextBox from '~/c_components/TextBox';
 import {SizedBox} from '~/c_components/SizedBox';
 import SelectInput from '~/c_components/SelectInput';
+import DDatePicker from '~/c_components/DatePicker';
 
 const Container = styled.View`
   flex: 1;
@@ -35,8 +36,10 @@ const FoodAddInput = ({navigation, route}: FoodSearchResultProps) => {
         <TextBox text={route?.params?.text} isLeft={true} />
         <SizedBox.Custom margin={nomalizes[40]} />
         <Heading>카테고리 지정</Heading>
-        {/* <TextBox text={route?.params?.text} isLeft={true} /> */}
         <SelectInput />
+        <SizedBox.Custom margin={nomalizes[40]} />
+        <Heading>등록일</Heading>
+        <DDatePicker />
       </Container>
     </>
   );
