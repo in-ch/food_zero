@@ -11,7 +11,7 @@ import Header from './Header';
 import {SizedBox} from '@components/SizedBox';
 import {nomalizes} from '@utills/constants';
 
-const TextContainer = styled.View`
+const TextContainer = styled.TouchableOpacity`
   padding-left: ${nomalizes[2]}px;
   padding-top: ${nomalizes[2]}px;
   padding-bottom: ${nomalizes[2]}px;
@@ -31,26 +31,29 @@ interface DayTextProps {
   disabled: string;
   GoToAgenda: () => void;
 }
+interface Props {
+  GoToAgenda: () => void;
+  GoToDetail: () => void;
+}
 
-const CCalendar = ({GoToAgenda}: Props) => {
+const CCalendar = ({GoToAgenda, GoToDetail}: Props) => {
   return (
     <>
       <CalendarList
         dayComponent={({date, state}) => {
-          console.log('상태' + state);
           return (
             <View style={{height: 80}}>
               <DayText disabled={state}>{date?.day}</DayText>
               <SizedBox.Custom margin={nomalizes[5]} />
               {state !== 'disabled' && (
                 <>
-                  <TextContainer>
+                  <TextContainer onPress={GoToDetail}>
                     <TText>파인애플</TText>
                   </TextContainer>
-                  <TextContainer>
+                  <TextContainer onPress={GoToDetail}>
                     <TText>토마토</TText>
                   </TextContainer>
-                  <TextContainer>
+                  <TextContainer onPress={GoToDetail}>
                     <TText>토마토</TText>
                   </TextContainer>
                 </>

@@ -36,6 +36,7 @@ interface Props {
   GoToSearch: () => void;
   GoToFoodAdd: () => void;
   GoToAgenda: () => void;
+  GoToDetail: () => void;
 }
 
 const HomePresenter = ({
@@ -43,6 +44,7 @@ const HomePresenter = ({
   GoToSearch,
   GoToFoodAdd,
   GoToAgenda,
+  GoToDetail,
 }: Props) => {
   return (
     <View
@@ -58,7 +60,7 @@ const HomePresenter = ({
       />
       <MenuBar GoToAlarm={GoToAlarm} GoToSearch={GoToSearch} />
       <Storys />
-      <CCalendar GoToAgenda={GoToAgenda} />
+      <CCalendar GoToAgenda={GoToAgenda} GoToDetail={GoToDetail} />
 
       <ModalBackground>
         <ModalButton onPress={GoToFoodAdd}>

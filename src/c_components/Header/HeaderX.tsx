@@ -24,7 +24,7 @@ const TextContainer = styled.View<TextContainerProps>`
 `;
 const TText = styled.Text<TextContainerProps>`
   position: relative;
-  left: ${props => (props.button ? nomalizes[25] : -nomalizes[15])};
+  left: ${props => (props.button ? nomalizes[27] : -nomalizes[15])};
   font-size: ${nomalizes[14]}px;
   font-weight: bold;
 `;

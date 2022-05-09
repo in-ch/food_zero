@@ -22,6 +22,7 @@ export type RootTabParamList = {
   InputProfile: {};
   FoodSearchResult: {};
   FoodDone: {};
+  Detail: {};
   FoodAddInput: {
     text: string;
   };
