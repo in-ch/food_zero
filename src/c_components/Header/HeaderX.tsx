@@ -18,20 +18,13 @@ const Wrapper = styled.View`
   flex-direction: row;
   ${cssUtil.doubleCenter}
 `;
-const IconContatiner = styled.TouchableOpacity`
-  width: ${nomalizes[30]}px;
-  height: ${nomalizes[30]}px;
-  display: flex;
-  flex-direction: row;
-  ${cssUtil.doubleCenter}
-`;
 const TextContainer = styled.View<TextContainerProps>`
   width: ${props =>
-    props.button ? cWidth - nomalizes[80] : cWidth - nomalizes[30]};
+    props.button ? cWidth - nomalizes[60] : cWidth - nomalizes[30]};
 `;
 const TText = styled.Text<TextContainerProps>`
   position: relative;
-  left: ${props => (props.button ? nomalizes[15] : -nomalizes[15])};
+  left: ${props => (props.button ? nomalizes[25] : -nomalizes[15])};
   font-size: ${nomalizes[14]}px;
   font-weight: bold;
 `;
@@ -41,22 +34,17 @@ const Button = styled.TouchableOpacity`
   margin-right: ${nomalizes[10]}px;
   border-radius: ${nomalizes[7]}px;
   display: flex;
-  background-color: #ff6c63;
   ${cssUtil.doubleCenter};
-`;
-const ButtonText = styled.Text`
-  color: white;
 `;
 interface TextContainerProps {
   button?: boolean;
 }
 interface HeaderProps {
   text: string;
-  back: () => void;
   button?: () => void;
 }
 
-const Header = ({text, back, button}: HeaderProps) => {
+const HeaderX = ({text, button}: HeaderProps) => {
   return (
     <Container>
       <SizedBox.Custom margin={statusBarHeight} />
@@ -65,25 +53,23 @@ const Header = ({text, back, button}: HeaderProps) => {
           borderBottomColor: '#e2e2e2',
           borderBottomWidth: 1,
         }}>
-        <IconContatiner onPress={back}>
-          <Image
-            style={{width: nomalizes[20], height: nomalizes[20]}}
-            source={Images.back}
-          />
-        </IconContatiner>
         <TextContainer button={button ? true : false}>
           <TText button={button ? true : false} style={{textAlign: 'center'}}>
             {text}
           </TText>
         </TextContainer>
-        {button && (
-          <Button onPress={button}>
-            <ButtonText>완료</ButtonText>
-          </Button>
-        )}
+        <Button onPress={button}>
+          <Image
+            style={{
+              width: nomalizes[15],
+              height: nomalizes[15],
+            }}
+            source={Images.close}
+          />
+        </Button>
       </Wrapper>
     </Container>
   );
 };
 
-export default Header;
+export default HeaderX;

@@ -71,7 +71,7 @@ const FoodAddInput = ({navigation, route}: FoodSearchResultProps) => {
       <Header
         text="식품 추가하기"
         back={() => navigation.goBack()}
-        button={() => console.log('asdf')}
+        button={() => navigation.reset({routes: [{name: 'FoodDone'}]})}
       />
       <Container>
         <ScrollView>

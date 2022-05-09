@@ -15,6 +15,7 @@ const images = {
   plus: require('./icons/plus-icon.png'),
   setting: require('./icons/setting-icon.png'),
   plusWhite: require('./icons/plus-white-icon.png'),
+  close: require('./icons/close-icon.png'),
 };
 
 export default images;
