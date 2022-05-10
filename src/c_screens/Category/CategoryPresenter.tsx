@@ -1,10 +1,12 @@
 import React from 'react';
-import {Image} from 'react-native';
+import {Image, Modal} from 'react-native';
+import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import images from '~/assets/images';
 import HeaderPlus from '~/c_components/Header/HeaderPlus';
 import {SizedBox} from '~/c_components/SizedBox';
 import {nomalizes} from '~/utills/constants';
+import {cssUtil} from '~/utills/cssUtil';
 
 const Container = styled.View`
   flex: 1;
@@ -26,7 +28,7 @@ const Row = styled.View`
   padding-left: ${nomalizes[20]}px;
   height: ${nomalizes[25]}px;
 `;
-const RowRight = styled.View`
+const RowRight = styled.TouchableOpacity`
   display: flex;
   flex: 2;
   margin-right: ${nomalizes[10]}px;
@@ -44,14 +46,43 @@ const Mark = styled.View<ColorProps>`
 const TText = styled.Text`
   color: #000;
 `;
+const Wrapper = styled.View`
+  background-color: rgba(0, 0, 0, 0.3);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+`;
+const ModalExtra = styled.TouchableOpacity`
+  flex: 8;
+`;
+const ModalContentBox = styled.View`
+  background-color: #fff;
+  border-top-left-radius: ${nomalizes[25]}px;
+  border-top-right-radius: ${nomalizes[25]}px;
+  flex: 2;
+  display: flex;
+  ${cssUtil.doubleCenter};
+`;
+const ModalText = styled.Text`
+  font-size: ${nomalizes[12]}px;
+  margin-top: ${nomalizes[15]}px;
+  margin-bottom: ${nomalizes[15]}px;
+`;
+const Hr = styled.View`
+  background-color: #f5f5f5;
+  width: 90%;
+  height: 2px;
+`;
 interface Props {
   goBack: () => void;
+  modalShow: boolean;
+  onShowModal: () => void;
 }
 interface ColorProps {
   color: string;
 }
 
-const CategoryPresenter = ({goBack}: Props) => {
+const CategoryPresenter = ({goBack, modalShow, onShowModal}: Props) => {
   return (
     <Container>
       <HeaderPlus
@@ -65,7 +96,7 @@ const CategoryPresenter = ({goBack}: Props) => {
           <Mark color="#e7a6a6" />
           <TText>과일</TText>
         </Row>
-        <RowRight>
+        <RowRight onPress={onShowModal}>
           <Image
             style={{
               width: nomalizes[16],
@@ -80,7 +111,7 @@ const CategoryPresenter = ({goBack}: Props) => {
           <Mark color="#e7a6a6" />
           <TText>과일</TText>
         </Row>
-        <RowRight>
+        <RowRight onPress={onShowModal}>
           <Image
             style={{
               width: nomalizes[16],
@@ -95,7 +126,7 @@ const CategoryPresenter = ({goBack}: Props) => {
           <Mark color="#e7a6a6" />
           <TText>과일</TText>
         </Row>
-        <RowRight>
+        <RowRight onPress={onShowModal}>
           <Image
             style={{
               width: nomalizes[16],
@@ -105,6 +136,21 @@ const CategoryPresenter = ({goBack}: Props) => {
           />
         </RowRight>
       </Box>
+
+      <Modal animationType="fade" visible={modalShow} transparent={true}>
+        <Wrapper>
+          <ModalExtra onPress={onShowModal} />
+          <ModalContentBox>
+            <TouchableWithoutFeedback>
+              <ModalText>삭제하기</ModalText>
+            </TouchableWithoutFeedback>
+            <Hr />
+            <TouchableWithoutFeedback>
+              <ModalText>수정하기</ModalText>
+            </TouchableWithoutFeedback>
+          </ModalContentBox>
+        </Wrapper>
+      </Modal>
     </Container>
   );
 };
