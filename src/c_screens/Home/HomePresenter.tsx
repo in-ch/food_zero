@@ -37,6 +37,7 @@ interface Props {
   GoToFoodAdd: () => void;
   GoToAgenda: () => void;
   GoToDetail: () => void;
+  GoToCategory: () => void;
 }
 
 const HomePresenter = ({
@@ -45,6 +46,7 @@ const HomePresenter = ({
   GoToFoodAdd,
   GoToAgenda,
   GoToDetail,
+  GoToCategory,
 }: Props) => {
   return (
     <View
@@ -58,7 +60,11 @@ const HomePresenter = ({
           backgroundColor: '#F4F4F4',
         }}
       />
-      <MenuBar GoToAlarm={GoToAlarm} GoToSearch={GoToSearch} />
+      <MenuBar
+        GoToAlarm={GoToAlarm}
+        GoToSearch={GoToSearch}
+        GoToCategory={GoToCategory}
+      />
       <Storys />
       <CCalendar GoToAgenda={GoToAgenda} GoToDetail={GoToDetail} />
 

@@ -137,12 +137,13 @@ const AnimatedContainer = Animated.createAnimatedComponent(SidebarContainer);
 interface Props {
   GoToAlarm: () => void;
   GoToSearch: () => void;
+  GoToCategory: () => void;
 }
 interface ContainerProps {
   show: boolean;
 }
 
-const MenuBar = ({GoToAlarm, GoToSearch}: Props) => {
+const MenuBar = ({GoToAlarm, GoToSearch, GoToCategory}: Props) => {
   const animatedValue = useRef(new Animated.Value(0)).current;
   const onShow = () => {
     Animated.timing(animatedValue, {
@@ -222,7 +223,7 @@ const MenuBar = ({GoToAlarm, GoToSearch}: Props) => {
                     source={Images.arrowLeft}
                   />
                 </TextContainer>
-                <TextContainer>
+                <TextContainer onPress={GoToCategory}>
                   <Text style={{fontSize: nomalizes[14]}}>카테고리 관리</Text>
                   <Image
                     style={{

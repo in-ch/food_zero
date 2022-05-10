@@ -19,6 +19,9 @@ const HomeContainer = ({navigation}: HomeProps) => {
   const GoToDetail = () => {
     navigation.navigate('Detail', {});
   };
+  const GoToCategory = () => {
+    navigation.navigate('Category', {});
+  };
 
   return (
     <>
@@ -28,6 +31,7 @@ const HomeContainer = ({navigation}: HomeProps) => {
         GoToFoodAdd={GoToFoodAdd}
         GoToAgenda={GoToAgenda}
         GoToDetail={GoToDetail}
+        GoToCategory={GoToCategory}
       />
     </>
   );

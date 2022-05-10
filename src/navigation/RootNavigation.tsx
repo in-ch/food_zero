@@ -11,6 +11,7 @@ import FoodSearchResult from '@screens/FoodAdd/pages/FoodSearchResult';
 import FoodAddInput from '@screens/FoodAdd/pages/FoodAddInput';
 import FoodDone from '@screens/FoodAdd/pages/FoodDone';
 import Detail from '@screens/Detail/Detail';
+import Category from '@screens/Category/Category';
 
 export type RootTabParamList = {
   Home: {};
@@ -23,6 +24,7 @@ export type RootTabParamList = {
   FoodSearchResult: {};
   FoodDone: {};
   Detail: {};
+  Category: {};
   FoodAddInput: {
     text: string;
   };
@@ -46,6 +48,7 @@ const RootNavigation = () => {
       <Stack.Screen name="FoodAddInput" component={FoodAddInput} />
       <Stack.Screen name="FoodDone" component={FoodDone} />
       <Stack.Screen name="Detail" component={Detail} />
+      <Stack.Screen name="Category" component={Category} />
     </Stack.Navigator>
   );
 };
