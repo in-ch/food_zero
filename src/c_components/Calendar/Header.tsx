@@ -1,9 +1,10 @@
-import React from 'react';
-import {Image} from 'react-native';
+import React, {useCallback, useState} from 'react';
+import {Image, Modal} from 'react-native';
 import styled from 'styled-components/native';
 import {nomalizes} from '@utills/constants';
 import images from '@assets/images';
-import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
+import MonthPicker from 'react-native-month-year-picker';
+
 // import moment from 'moment';
 // import 'moment/locale/ko';
 
@@ -21,7 +22,7 @@ const HHeader = styled.View`
   justify-content: space-between;
   align-items: center;
 `;
-const Row = styled.View`
+const Row = styled.TouchableOpacity`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -31,20 +32,11 @@ const TText = styled.Text`
   font-weight: bold;
   padding-right: ${nomalizes[5]}px;
 `;
-// const AddButton = styled.TouchableOpacity`
-//   width: ${nomalizes[40]}px;
-//   height: ${nomalizes[20]}px;
-//   margin-left: ${nomalizes[5]}px;
-//   border-radius: ${nomalizes[4]}px;
-//   color: #fff;
-//   background-color: #ff6c63;
-//   display: flex;
-//   ${cssUtil.doubleCenter};
-// `;
-// const AddButtonText = styled.Text`
-//   color: #fff;
-//   font-size: ${nomalizes[8]}px;
-// `;
+const Wrapper = styled.View`
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex: 1;
+`;
 interface Props {
   date: string;
   GoToAgenda: () => void;
@@ -54,36 +46,54 @@ const Header = ({date, GoToAgenda}: Props) => {
   const ddate = new Date(date);
   const month = ddate.getMonth();
   const year = ddate.getFullYear();
+
+  // 데이터 픽업 관련
+  const [dateP, setDateP] = useState<Date | String>(new Date());
+  const [show, setShow] = useState(false);
+
+  const showPicker = useCallback((value: boolean) => setShow(value), []);
+
+  const onValueChange = useCallback(
+    (_event: any, newDate: string) => {
+      const selectedDate = newDate || dateP;
+
+      showPicker(false);
+      setDateP(selectedDate);
+    },
+    [dateP, showPicker],
+  );
   return (
     <Container>
       <HHeader>
-        <Row>
+        <Row onPress={() => setShow(true)}>
           <TText>
             {year}년 {month + 1}월
           </TText>
-          <TouchableWithoutFeedback>
-            <Image
-              style={{
-                width: nomalizes[5],
-                height: nomalizes[5],
-              }}
-              source={images.arrowDown}
-            />
-          </TouchableWithoutFeedback>
+          <Image
+            style={{
+              width: nomalizes[5],
+              height: nomalizes[5],
+            }}
+            source={images.arrowDown}
+          />
         </Row>
-        <Row>
-          <TouchableWithoutFeedback onPress={GoToAgenda}>
-            <Image
-              style={{
-                width: nomalizes[15],
-                height: nomalizes[15],
-              }}
-              source={images.calendar}
+        <Row onPress={GoToAgenda}>
+          <Image
+            style={{
+              width: nomalizes[15],
+              height: nomalizes[15],
+            }}
+            source={images.calendar}
+          />
+          <Modal animationType="slide" visible={show} transparent={true}>
+            <MonthPicker
+              onChange={onValueChange}
+              value={date}
+              minimumDate={new Date(2022, 1)}
+              maximumDate={new Date(2024, 5)}
+              locale="ko"
             />
-          </TouchableWithoutFeedback>
-          {/* <AddButton onPress={GoToFoodAdd}>
-            <AddButtonText>추가하기</AddButtonText>
-          </AddButton> */}
+          </Modal>
         </Row>
       </HHeader>
     </Container>
