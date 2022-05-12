@@ -12,8 +12,9 @@ import FoodAddInput from '@screens/FoodAdd/pages/FoodAddInput';
 import FoodDone from '@screens/FoodAdd/pages/FoodDone';
 import Detail from '@screens/Detail/Detail';
 import Category from '@screens/Category/Category';
-import CategoryAdd from '~/c_screens/Category/page/CategoryAdd';
-import CategoryUpdate from '~/c_screens/Category/page/CategoryUpdate';
+import CategoryAdd from '@screens/Category/page/CategoryAdd';
+import CategoryUpdate from '@screens/Category/page/CategoryUpdate';
+import Neighbor from '@screens/ Neighbor/ Neighbor';
 
 export type RootTabParamList = {
   Home: {};
@@ -29,6 +30,7 @@ export type RootTabParamList = {
   Category: {};
   CategoryAdd: {};
   CategoryUpdate: {};
+  Neighbor: {};
   FoodAddInput: {
     text: string;
   };
@@ -55,6 +57,7 @@ const RootNavigation = () => {
       <Stack.Screen name="Category" component={Category} />
       <Stack.Screen name="CategoryAdd" component={CategoryAdd} />
       <Stack.Screen name="CategoryUpdate" component={CategoryUpdate} />
+      <Stack.Screen name="Neighbor" component={Neighbor} />
     </Stack.Navigator>
   );
 };

@@ -38,6 +38,7 @@ interface Props {
   GoToAgenda: () => void;
   GoToDetail: () => void;
   GoToCategory: () => void;
+  GoToNeighbor: () => void;
 }
 
 const HomePresenter = ({
@@ -47,6 +48,7 @@ const HomePresenter = ({
   GoToAgenda,
   GoToDetail,
   GoToCategory,
+  GoToNeighbor,
 }: Props) => {
   return (
     <View
@@ -64,6 +66,7 @@ const HomePresenter = ({
         GoToAlarm={GoToAlarm}
         GoToSearch={GoToSearch}
         GoToCategory={GoToCategory}
+        GoToNeighbor={GoToNeighbor}
       />
       <Storys />
       <CCalendar GoToAgenda={GoToAgenda} GoToDetail={GoToDetail} />

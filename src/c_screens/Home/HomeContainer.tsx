@@ -22,6 +22,9 @@ const HomeContainer = ({navigation}: HomeProps) => {
   const GoToCategory = () => {
     navigation.navigate('Category', {});
   };
+  const GoToNeighbor = () => {
+    navigation.navigate('Neighbor', {});
+  };
 
   return (
     <>
@@ -32,6 +35,7 @@ const HomeContainer = ({navigation}: HomeProps) => {
         GoToAgenda={GoToAgenda}
         GoToDetail={GoToDetail}
         GoToCategory={GoToCategory}
+        GoToNeighbor={GoToNeighbor}
       />
     </>
   );

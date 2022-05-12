@@ -138,12 +138,18 @@ interface Props {
   GoToAlarm: () => void;
   GoToSearch: () => void;
   GoToCategory: () => void;
+  GoToNeighbor: () => void;
 }
 interface ContainerProps {
   show: boolean;
 }
 
-const MenuBar = ({GoToAlarm, GoToSearch, GoToCategory}: Props) => {
+const MenuBar = ({
+  GoToAlarm,
+  GoToSearch,
+  GoToCategory,
+  GoToNeighbor,
+}: Props) => {
   const animatedValue = useRef(new Animated.Value(0)).current;
   const onShow = () => {
     Animated.timing(animatedValue, {
@@ -212,7 +218,7 @@ const MenuBar = ({GoToAlarm, GoToSearch, GoToCategory}: Props) => {
                   borderBottomColor: '#000',
                   borderBottomWidth: 1,
                 }}>
-                <TextContainer>
+                <TextContainer onPress={GoToNeighbor}>
                   <Text style={{fontSize: nomalizes[14]}}>이웃 관리</Text>
                   <Image
                     style={{
