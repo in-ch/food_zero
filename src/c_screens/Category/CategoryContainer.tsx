@@ -10,6 +10,9 @@ const CategoryContainer = ({navigation}: CategoryProps) => {
   const goToCategoryAdd = () => {
     navigation.navigate('CategoryAdd', {});
   };
+  const goToCategoryUpdate = () => {
+    navigation.navigate('CategoryUpdate', {});
+  };
   const onShowModal = () => {
     setModalShow(!modalShow);
   };
@@ -17,6 +20,7 @@ const CategoryContainer = ({navigation}: CategoryProps) => {
     <CategoryPresenter
       goBack={goBack}
       goToCategoryAdd={goToCategoryAdd}
+      goToCategoryUpdate={goToCategoryUpdate}
       modalShow={modalShow}
       onShowModal={onShowModal}
     />

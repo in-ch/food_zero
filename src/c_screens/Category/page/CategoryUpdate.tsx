@@ -41,7 +41,7 @@ const CategoryUpdate = ({navigation}: CategoryAddProps) => {
   };
   return (
     <Container>
-      <HeaderPlus text="카테고리 추가" back={goBack} />
+      <HeaderPlus text="카테고리 수정" back={goBack} />
       <SizedBox.Custom margin={nomalizes[10]} />
       <SearchInputOneLine
         value={value}

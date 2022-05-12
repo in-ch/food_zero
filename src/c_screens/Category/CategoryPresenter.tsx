@@ -76,6 +76,7 @@ const Hr = styled.View`
 interface Props {
   goBack: () => void;
   goToCategoryAdd: () => void;
+  goToCategoryUpdate: () => void;
   modalShow: boolean;
   onShowModal: () => void;
 }
@@ -88,7 +89,12 @@ const CategoryPresenter = ({
   modalShow,
   onShowModal,
   goToCategoryAdd,
+  goToCategoryUpdate,
 }: Props) => {
+  const goToUpdate = () => {
+    onShowModal();
+    goToCategoryUpdate();
+  };
   return (
     <Container>
       <HeaderPlus text="카테고리 관리" back={goBack} button={goToCategoryAdd} />
@@ -147,7 +153,7 @@ const CategoryPresenter = ({
               <ModalText>삭제하기</ModalText>
             </TouchableWithoutFeedback>
             <Hr />
-            <TouchableWithoutFeedback>
+            <TouchableWithoutFeedback onPress={goToUpdate}>
               <ModalText>수정하기</ModalText>
             </TouchableWithoutFeedback>
           </ModalContentBox>
