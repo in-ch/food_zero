@@ -75,6 +75,7 @@ const Hr = styled.View`
 `;
 interface Props {
   goBack: () => void;
+  goToCategoryAdd: () => void;
   modalShow: boolean;
   onShowModal: () => void;
 }
@@ -82,14 +83,15 @@ interface ColorProps {
   color: string;
 }
 
-const CategoryPresenter = ({goBack, modalShow, onShowModal}: Props) => {
+const CategoryPresenter = ({
+  goBack,
+  modalShow,
+  onShowModal,
+  goToCategoryAdd,
+}: Props) => {
   return (
     <Container>
-      <HeaderPlus
-        text="카테고리 관리"
-        back={goBack}
-        button={() => console.log('asdf')}
-      />
+      <HeaderPlus text="카테고리 관리" back={goBack} button={goToCategoryAdd} />
       <SizedBox.Custom margin={nomalizes[10]} />
       <Box>
         <Row>

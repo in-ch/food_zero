@@ -80,6 +80,7 @@ const HeaderPlus = ({text, back, button}: HeaderProps) => {
         </TextContainer>
         {button && (
           <TouchableOpacity
+            onPress={button}
             style={{
               width: nomalizes[55],
               height: nomalizes[30],
