@@ -10,12 +10,24 @@ const Container = styled.View`
 `;
 interface Props {
   GoBack: () => void;
+  goToDetail: () => void;
+  selected?: string;
+  GoToFoodAdd: () => void;
 }
-const AgendaPresenter = ({GoBack}: Props) => {
+const AgendaPresenter = ({
+  GoBack,
+  selected,
+  goToDetail,
+  GoToFoodAdd,
+}: Props) => {
   return (
     <Container>
       <Header text="아젠다" back={GoBack} />
-      <AgendaCalendar />
+      <AgendaCalendar
+        selected={selected}
+        goToDetail={goToDetail}
+        GoToFoodAdd={GoToFoodAdd}
+      />
     </Container>
   );
 };

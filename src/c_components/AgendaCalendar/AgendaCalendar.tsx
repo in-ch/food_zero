@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import {Alert, StyleSheet, View, TouchableOpacity, Image} from 'react-native';
+import {StyleSheet, View, TouchableOpacity, Image} from 'react-native';
 import {
   Agenda,
   DateData,
   AgendaEntry,
   AgendaSchedule,
 } from 'react-native-calendars';
+import moment from 'moment';
 import styled from 'styled-components/native';
 import images from '@assets/images';
 import {nomalizes} from '@utills/constants';
@@ -106,11 +107,19 @@ const testIDs = {
 
 interface State {
   items?: AgendaSchedule;
+  selected?: string;
+  goToDetail: () => void;
+  GoToFoodAdd: () => void;
 }
 
 export default class AgendaScreen extends Component<State> {
   state: State = {
     items: undefined,
+    selected: this.props.selected
+      ? this.props.selected
+      : String(moment(new Date()).format('YYYY-MM-DD')),
+    goToDetail: this.props.goToDetail,
+    GoToFoodAdd: this.props.GoToFoodAdd,
   };
 
   render() {
@@ -120,7 +129,7 @@ export default class AgendaScreen extends Component<State> {
           testID={testIDs.agenda.CONTAINER}
           items={this.state.items}
           loadItemsForMonth={this.loadItems}
-          selected={'2022-05-07'}
+          selected={this.state.selected}
           renderItem={this.renderItem}
           renderEmptyDate={this.renderEmptyDate}
           rowHasChanged={this.rowHasChanged}
@@ -134,7 +143,7 @@ export default class AgendaScreen extends Component<State> {
           }}
         />
         <ModalBackground>
-          <ModalButton>
+          <ModalButton onPress={this.props.GoToFoodAdd}>
             <Image
               style={{
                 width: nomalizes[18],
@@ -179,12 +188,12 @@ export default class AgendaScreen extends Component<State> {
     }, 1000);
   };
 
-  renderItem = (reservation: AgendaEntry) => {
+  renderItem = () => {
     return (
       <TouchableOpacity
         testID={testIDs.agenda.ITEM}
         style={[styles.item]}
-        onPress={() => Alert.alert(reservation.name)}>
+        onPress={this.props.goToDetail}>
         <Heading>과일</Heading>
         <RenderContainer>
           <RenderFlexOne>

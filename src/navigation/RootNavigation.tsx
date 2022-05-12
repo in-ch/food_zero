@@ -18,7 +18,6 @@ import Neighbor from '@screens/ Neighbor/ Neighbor';
 
 export type RootTabParamList = {
   Home: {};
-  Agenda: {};
   Login: {};
   Alarm: {};
   Search: {};
@@ -31,6 +30,9 @@ export type RootTabParamList = {
   CategoryAdd: {};
   CategoryUpdate: {};
   Neighbor: {};
+  Agenda: {
+    selected?: string;
+  };
   FoodAddInput: {
     text: string;
   };

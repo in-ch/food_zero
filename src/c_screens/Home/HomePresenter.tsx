@@ -36,7 +36,7 @@ interface Props {
   GoToSearch: () => void;
   GoToFoodAdd: () => void;
   GoToAgenda: () => void;
-  GoToDetail: () => void;
+  GoToDetail: (value: string) => void;
   GoToCategory: () => void;
   GoToNeighbor: () => void;
 }

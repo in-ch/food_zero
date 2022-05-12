@@ -10,14 +10,14 @@ const HomeContainer = ({navigation}: HomeProps) => {
     navigation.navigate('Search', {});
   };
   const GoToFoodAdd = () => {
-    console.log('Hello');
     navigation.navigate('FoodAdd', {});
   };
   const GoToAgenda = () => {
     navigation.navigate('Agenda', {});
   };
-  const GoToDetail = () => {
-    navigation.navigate('Detail', {});
+  const GoToDetail = (selected: string) => {
+    console.log('하이' + selected);
+    navigation.navigate('Agenda', {selected});
   };
   const GoToCategory = () => {
     navigation.navigate('Category', {});

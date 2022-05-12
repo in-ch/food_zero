@@ -3,6 +3,7 @@ import React from 'react';
 import {CalendarList} from 'react-native-calendars';
 import {View} from 'react-native';
 import styled from 'styled-components/native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import 'moment/locale/ko';
 
 require('moment-timezone');
@@ -11,7 +12,7 @@ import Header from './Header';
 import {SizedBox} from '@components/SizedBox';
 import {nomalizes} from '@utills/constants';
 
-const TextContainer = styled.TouchableOpacity`
+const TextContainer = styled.View`
   padding-left: ${nomalizes[2]}px;
   padding-top: ${nomalizes[2]}px;
   padding-bottom: ${nomalizes[2]}px;
@@ -33,7 +34,7 @@ interface DayTextProps {
 }
 interface Props {
   GoToAgenda: () => void;
-  GoToDetail: () => void;
+  GoToDetail: (value: string) => void;
 }
 
 const CCalendar = ({GoToAgenda, GoToDetail}: Props) => {
@@ -46,17 +47,26 @@ const CCalendar = ({GoToAgenda, GoToDetail}: Props) => {
               <DayText disabled={state}>{date?.day}</DayText>
               <SizedBox.Custom margin={nomalizes[5]} />
               {state !== 'disabled' && (
-                <>
-                  <TextContainer onPress={GoToDetail}>
+                <TouchableOpacity
+                  onPress={() =>
+                    GoToDetail(
+                      `${date?.year}-${
+                        String(date?.month)?.length > 1 ? '' : '0'
+                      }${date?.month}-${
+                        String(date?.day)?.length > 1 ? '' : '0'
+                      }${date?.day}`,
+                    )
+                  }>
+                  <TextContainer>
                     <TText>파인애플</TText>
                   </TextContainer>
-                  <TextContainer onPress={GoToDetail}>
+                  <TextContainer>
                     <TText>토마토</TText>
                   </TextContainer>
-                  <TextContainer onPress={GoToDetail}>
+                  <TextContainer>
                     <TText>토마토</TText>
                   </TextContainer>
-                </>
+                </TouchableOpacity>
               )}
             </View>
           );
