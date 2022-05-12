@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {Image} from 'react-native';
 import styled from 'styled-components/native';
@@ -10,7 +11,6 @@ const Container = styled.View`
   width: 95%;
   height: ${nomalizes[35]}px;
   background-color: #fff;
-  border: 1px solid #777777;
   margin-left: 2.5%;
   display: flex;
   flex-direction: row;
@@ -41,7 +41,11 @@ interface Props {
 
 const SearchInputOneLine = ({value, setValue, placeholder}: Props) => {
   return (
-    <Container>
+    <Container
+      style={{
+        borderBottomColor: '#cccccc',
+        borderBottomWidth: 1,
+      }}>
       <TTextInput
         placeholder={placeholder ? placeholder : '검색하기'}
         placeholderTextColor="#646464"
