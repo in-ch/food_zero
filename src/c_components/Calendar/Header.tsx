@@ -1,11 +1,12 @@
 import React, {useCallback, useState} from 'react';
 import {Image, Modal} from 'react-native';
 import styled from 'styled-components/native';
-import {nomalizes} from '@utills/constants';
-import images from '@assets/images';
+import moment from 'moment';
 import MonthPicker from 'react-native-month-year-picker';
 
-// import moment from 'moment';
+import {nomalizes} from '@utills/constants';
+import images from '@assets/images';
+
 // import 'moment/locale/ko';
 
 // require('moment-timezone');
@@ -32,17 +33,14 @@ const TText = styled.Text`
   font-weight: bold;
   padding-right: ${nomalizes[5]}px;
 `;
-const Wrapper = styled.View`
-  background-color: rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex: 1;
-`;
+
 interface Props {
   date: string;
   GoToAgenda: () => void;
+  setCurrent: (value: string) => void;
 }
 
-const Header = ({date, GoToAgenda}: Props) => {
+const Header = ({date, GoToAgenda, setCurrent}: Props) => {
   const ddate = new Date(date);
   const month = ddate.getMonth();
   const year = ddate.getFullYear();
@@ -59,8 +57,9 @@ const Header = ({date, GoToAgenda}: Props) => {
 
       showPicker(false);
       setDateP(selectedDate);
+      setCurrent(String(moment(new Date(selectedDate)).format('YYYY-MM')));
     },
-    [dateP, showPicker],
+    [dateP, showPicker, setCurrent],
   );
   return (
     <Container>
