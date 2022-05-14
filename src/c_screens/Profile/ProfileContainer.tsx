@@ -6,7 +6,10 @@ const ProfileContainer = ({navigation}: ProfileProps) => {
   const goBack = () => {
     navigation.goBack();
   };
-  return <ProfilePresenter goBack={goBack} />;
+  const goToProfileEdit = () => {
+    navigation.navigate('ProfileEdit', {});
+  };
+  return <ProfilePresenter goBack={goBack} goToProfileEdit={goToProfileEdit} />;
 };
 
 export default ProfileContainer;
