@@ -92,7 +92,7 @@ const Profile = styled.View`
   ${cssUtil.doubleCenter};
   overflow: hidden;
 `;
-const ProfileNicknameContainer = styled.View`
+const ProfileNicknameContainer = styled.TouchableOpacity`
   max-width: 60%;
   height: ${nomalizes[15]}px;
   text-overflow: ellipsis;
@@ -140,6 +140,7 @@ interface Props {
   GoToCategory: () => void;
   GoToNeighbor: () => void;
   GoToSetting: () => void;
+  GoToProfile: () => void;
 }
 interface ContainerProps {
   show: boolean;
@@ -151,6 +152,7 @@ const MenuBar = ({
   GoToCategory,
   GoToNeighbor,
   GoToSetting,
+  GoToProfile,
 }: Props) => {
   const animatedValue = useRef(new Animated.Value(0)).current;
   const onShow = () => {
@@ -203,7 +205,7 @@ const MenuBar = ({
                     source={Images.user}
                   />
                 </Profile>
-                <ProfileNicknameContainer>
+                <ProfileNicknameContainer onPress={GoToProfile}>
                   <ProfileNickname numberOfLines={1}>닉네임</ProfileNickname>
                 </ProfileNicknameContainer>
                 <Image

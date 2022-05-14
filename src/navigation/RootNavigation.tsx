@@ -17,7 +17,8 @@ import CategoryUpdate from '@screens/Category/page/CategoryUpdate';
 import Neighbor from '@screens/ Neighbor/ Neighbor';
 import Setting from '@screens/Setting/Setting';
 import Terms from '@screens/Setting/pages/Terms';
-import PersonalPolicy from '~/c_screens/Setting/pages/PersonalPolicy';
+import PersonalPolicy from '@screens/Setting/pages/PersonalPolicy';
+import Profile from '@screens/Profile/Profile';
 
 export type RootTabParamList = {
   Home: {};
@@ -36,6 +37,7 @@ export type RootTabParamList = {
   Setting: {};
   Terms: {};
   PersonalPolicy: {};
+  Profile: {};
   Agenda: {
     selected?: string;
   };
@@ -69,6 +71,7 @@ const RootNavigation = () => {
       <Stack.Screen name="Neighbor" component={Neighbor} />
       <Stack.Screen name="Terms" component={Terms} />
       <Stack.Screen name="PersonalPolicy" component={PersonalPolicy} />
+      <Stack.Screen name="Profile" component={Profile} />
     </Stack.Navigator>
   );
 };
