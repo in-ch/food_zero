@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {Switch} from 'react-native';
+import {Switch, TouchableNativeFeedback} from 'react-native';
 
 import Header from '@components/Header/Header';
 import {nomalizes} from '@utills/constants';
@@ -33,6 +33,8 @@ const Row = styled.View`
 
 interface Props {
   GoBack: () => void;
+  goToTerms: () => void;
+  goToPersonalPolicy: () => void;
   handleNeighborShareAbled: () => void;
   handleNeighborShareNewsAbled: () => void;
   neighborShareAbled: boolean;
@@ -41,6 +43,8 @@ interface Props {
 
 const SettingPresenter = ({
   GoBack,
+  goToTerms,
+  goToPersonalPolicy,
   handleNeighborShareAbled,
   handleNeighborShareNewsAbled,
   neighborShareAbled,
@@ -71,8 +75,12 @@ const SettingPresenter = ({
             onValueChange={handleNeighborShareNewsAbled}
           />
         </Row>
-        <Heading>개인 정보 처리 방침</Heading>
-        <Heading>이용 약관</Heading>
+        <TouchableNativeFeedback onPress={goToPersonalPolicy}>
+          <Heading>개인 정보 처리 방침</Heading>
+        </TouchableNativeFeedback>
+        <TouchableNativeFeedback onPress={goToTerms}>
+          <Heading>이용 약관</Heading>
+        </TouchableNativeFeedback>
         <Heading>Fooro 탈퇴</Heading>
       </Wrapper>
     </Container>

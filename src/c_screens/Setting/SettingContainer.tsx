@@ -3,8 +3,14 @@ import {SettingProps} from './Setting';
 import SettingPresenter from './SettingPresetner';
 
 const SettingContainer = ({navigation}: SettingProps) => {
-  const GoBack = () => {
+  const goBack = () => {
     navigation.goBack();
+  };
+  const goToTerms = () => {
+    navigation.navigate('Terms', {});
+  };
+  const goToPersonalPolicy = () => {
+    navigation.navigate('PersonalPolicy', {});
   };
   const [neighborShareAbled, setNeighborShareAbled] = useState<boolean>(false); // 이웃의 나눔 요청 받기
   const [neighborShareNewsAbled, setNeighborShareNewsAbled] =
@@ -18,7 +24,9 @@ const SettingContainer = ({navigation}: SettingProps) => {
   };
   return (
     <SettingPresenter
-      GoBack={GoBack}
+      GoBack={goBack}
+      goToTerms={goToTerms}
+      goToPersonalPolicy={goToPersonalPolicy}
       handleNeighborShareAbled={handleNeighborShareAbled}
       handleNeighborShareNewsAbled={handleNeighborShareNewsAbled}
       neighborShareAbled={neighborShareAbled}
