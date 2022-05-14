@@ -24,6 +24,9 @@ const HomeContainer = ({navigation}: HomeProps) => {
   const GoToNeighbor = () => {
     navigation.navigate('Neighbor', {});
   };
+  const GoToSetting = () => {
+    navigation.navigate('Setting', {});
+  };
 
   return (
     <>
@@ -35,6 +38,7 @@ const HomeContainer = ({navigation}: HomeProps) => {
         GoToDetail={GoToDetail}
         GoToCategory={GoToCategory}
         GoToNeighbor={GoToNeighbor}
+        GoToSetting={GoToSetting}
       />
     </>
   );

@@ -15,6 +15,7 @@ import Category from '@screens/Category/Category';
 import CategoryAdd from '@screens/Category/page/CategoryAdd';
 import CategoryUpdate from '@screens/Category/page/CategoryUpdate';
 import Neighbor from '@screens/ Neighbor/ Neighbor';
+import Setting from '~/c_screens/Setting/Setting';
 
 export type RootTabParamList = {
   Home: {};
@@ -30,6 +31,7 @@ export type RootTabParamList = {
   CategoryAdd: {};
   CategoryUpdate: {};
   Neighbor: {};
+  Setting: {};
   Agenda: {
     selected?: string;
   };
@@ -56,6 +58,7 @@ const RootNavigation = () => {
       <Stack.Screen name="FoodAddInput" component={FoodAddInput} />
       <Stack.Screen name="FoodDone" component={FoodDone} />
       <Stack.Screen name="Detail" component={Detail} />
+      <Stack.Screen name="Setting" component={Setting} />
       <Stack.Screen name="Category" component={Category} />
       <Stack.Screen name="CategoryAdd" component={CategoryAdd} />
       <Stack.Screen name="CategoryUpdate" component={CategoryUpdate} />

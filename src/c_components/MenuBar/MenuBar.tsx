@@ -124,7 +124,7 @@ const TextContainer = styled.TouchableOpacity`
 `;
 const SettingContainer = styled.View`
   width: 100%;
-  height: ${nomalizes[160]}px;
+  height: ${nomalizes[110]}px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -139,6 +139,7 @@ interface Props {
   GoToSearch: () => void;
   GoToCategory: () => void;
   GoToNeighbor: () => void;
+  GoToSetting: () => void;
 }
 interface ContainerProps {
   show: boolean;
@@ -149,6 +150,7 @@ const MenuBar = ({
   GoToSearch,
   GoToCategory,
   GoToNeighbor,
+  GoToSetting,
 }: Props) => {
   const animatedValue = useRef(new Animated.Value(0)).current;
   const onShow = () => {
@@ -242,11 +244,8 @@ const MenuBar = ({
                 </TextContainer>
               </CategoryContainer>
               <SettingContainer>
-                <TextContainer>
-                  <Text style={{fontSize: nomalizes[14]}}>알림설정</Text>
-                </TextContainer>
-                <TextContainer>
-                  <Text style={{fontSize: nomalizes[14]}}>환경설정</Text>
+                <TextContainer onPress={GoToSetting}>
+                  <Text style={{fontSize: nomalizes[14]}}>설정</Text>
                 </TextContainer>
                 <TextContainer>
                   <Text style={{fontSize: nomalizes[14]}}>로그아웃</Text>
