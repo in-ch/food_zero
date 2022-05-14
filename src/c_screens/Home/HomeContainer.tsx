@@ -16,7 +16,6 @@ const HomeContainer = ({navigation}: HomeProps) => {
     navigation.navigate('Agenda', {});
   };
   const GoToDetail = (selected: string) => {
-    console.log('하이' + selected);
     navigation.navigate('Agenda', {selected});
   };
   const GoToCategory = () => {
