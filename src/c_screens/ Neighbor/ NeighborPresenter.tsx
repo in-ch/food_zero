@@ -52,6 +52,7 @@ const ModalText = styled.Text`
   font-size: ${nomalizes[12]}px;
   margin-top: ${nomalizes[15]}px;
   margin-bottom: ${nomalizes[15]}px;
+  color: rgb(50, 50, 50);
 `;
 
 interface Props {

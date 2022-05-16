@@ -25,7 +25,7 @@ interface Props {
   isLeft?: boolean;
 }
 interface ContainerProps {
-  isLeft: boolean;
+  isLeft?: boolean;
 }
 
 const TextBox = ({text, isLeft}: Props) => {

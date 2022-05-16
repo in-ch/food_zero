@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {Text} from 'react-native';
 import {nomalizes} from '@utills/constants';
 import {cssUtil} from '@utills/cssUtil';
 
@@ -19,6 +18,7 @@ const TTextInput = styled.TextInput`
   flex: 8;
   height: ${nomalizes[40]}px;
   font-size: ${nomalizes[14]}px;
+  color: rgb(50, 50, 50);
 `;
 const LengthContainer = styled.View`
   flex: 2;
@@ -27,6 +27,9 @@ const LengthContainer = styled.View`
   display: flex;
   flex-direction: row;
   ${cssUtil.doubleCenter};
+`;
+const TText = styled.Text`
+  color: RGB(50, 50, 50);
 `;
 
 interface Props {
@@ -45,9 +48,9 @@ const TextInput = ({value, setValue, maxLength}: Props) => {
         maxLength={maxLength}
       />
       <LengthContainer>
-        <Text>
+        <TText>
           {value?.length}/{maxLength}
-        </Text>
+        </TText>
       </LengthContainer>
     </Container>
   );

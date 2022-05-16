@@ -46,7 +46,7 @@ interface CurrentProps {
   current?: boolean;
 }
 interface DayTextProps {
-  disabled: string;
+  dis: string;
   GoToAgenda: () => void;
   current?: boolean;
 }
@@ -83,7 +83,7 @@ const CCalendar = ({GoToAgenda, GoToDetail}: Props) => {
                   String(currentDay)
                 }>
                 <DayText
-                  disabled={state}
+                  dis={Boolean(state)}
                   current={
                     DateToString(date?.year, date?.month, date?.day) ===
                     String(currentDay)

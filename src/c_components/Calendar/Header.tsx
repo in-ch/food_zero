@@ -2,7 +2,7 @@ import React, {useCallback, useState} from 'react';
 import {Image, Modal} from 'react-native';
 import styled from 'styled-components/native';
 import moment from 'moment';
-import MonthPicker from 'react-native-month-year-picker';
+// import MonthPicker from 'react-native-month-year-picker';
 
 import {nomalizes} from '@utills/constants';
 import images from '@assets/images';
@@ -32,6 +32,7 @@ const TText = styled.Text`
   font-size: ${nomalizes[16]}px;
   font-weight: bold;
   padding-right: ${nomalizes[5]}px;
+  color: rgb(50, 50, 50);
 `;
 
 interface Props {
@@ -85,13 +86,13 @@ const Header = ({date, GoToAgenda, setCurrent}: Props) => {
             source={images.calendar}
           />
           <Modal animationType="slide" visible={show} transparent={true}>
-            <MonthPicker
+            {/* <MonthPicker
               onChange={onValueChange}
               value={date}
               minimumDate={new Date(2022, 1)}
               maximumDate={new Date(2024, 5)}
               locale="ko"
-            />
+            /> */}
           </Modal>
         </Row>
       </HHeader>

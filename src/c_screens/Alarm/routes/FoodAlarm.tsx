@@ -25,9 +25,12 @@ const Bottom = styled.View`
   width: 100%;
   height: ${nomalizes[20]}px;
 `;
-const FoodName = styled.Text``;
+const FoodName = styled.Text`
+  color: #000;
+`;
 const FoodText = styled.Text`
   margin-left: ${nomalizes[5]}px;
+  color: #000;
 `;
 const DDay = styled.Text`
   color: #a4a4a4;

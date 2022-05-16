@@ -27,6 +27,7 @@ const TText = styled.Text<TextContainerProps>`
   left: ${props => (props.button ? nomalizes[27] : -nomalizes[15])};
   font-size: ${nomalizes[14]}px;
   font-weight: bold;
+  color: #000;
 `;
 const Button = styled.TouchableOpacity`
   width: ${nomalizes[45]}px;

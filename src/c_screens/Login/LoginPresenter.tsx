@@ -43,6 +43,7 @@ const PhoneButton = styled.TouchableOpacity`
 `;
 const TText = styled.Text`
   margin-left: ${nomalizes[10]}px;
+  color: rgb(50, 50, 50);
 `;
 const Heading = styled.Text`
   color: #8f8f8f;

@@ -1,9 +1,9 @@
 import React from 'react';
-import {Image, Text} from 'react-native';
+import {Image} from 'react-native';
 import styled from 'styled-components/native';
 import {nomalizes} from '@utills/constants';
-import images from '~/assets/images';
-import {cssUtil} from '~/utills/cssUtil';
+import images from '@assets/images';
+import {cssUtil} from '@utills/cssUtil';
 
 const Container = styled.View`
   width: ${nomalizes[50]}px;
@@ -21,13 +21,17 @@ const Profile = styled.View`
   ${cssUtil.doubleCenter};
 `;
 const NameContainer = styled.View`
+  width: ${nomalizes[40]}px;
+  height: ${nomalizes[15]}px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-end;
   margin-top: ${nomalizes[5]}px;
 `;
-
+const TText = styled.Text`
+  color: #000;
+`;
 interface Props {
   isPlus?: boolean;
 }
@@ -54,7 +58,7 @@ const Story = ({isPlus}: Props) => {
         )}
       </Profile>
       <NameContainer>
-        <Text>아무 이름</Text>
+        <TText>아무 이름</TText>
       </NameContainer>
     </Container>
   );

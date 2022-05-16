@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useRef} from 'react';
 import styled from 'styled-components/native';
-import {Animated, Image, Text} from 'react-native';
+import {Animated, Image} from 'react-native';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 
 import {cHeight, cWidth, nomalizes} from '@utills/constants';
@@ -101,6 +101,7 @@ const ProfileNickname = styled.Text`
   margin-left: ${nomalizes[15]}px;
   font-size: ${nomalizes[14]}px;
   font-weight: bold;
+  color: rgb(50, 50, 50);
 `;
 const CategoryContainer = styled.View`
   width: 100%;
@@ -130,6 +131,9 @@ const SettingContainer = styled.View`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+`;
+const TText = styled.Text`
+  color: rgb(50, 50, 50);
 `;
 
 const AnimatedContainer = Animated.createAnimatedComponent(SidebarContainer);
@@ -223,7 +227,7 @@ const MenuBar = ({
                   borderBottomWidth: 1,
                 }}>
                 <TextContainer onPress={GoToNeighbor}>
-                  <Text style={{fontSize: nomalizes[14]}}>이웃 관리</Text>
+                  <TText style={{fontSize: nomalizes[14]}}>이웃 관리</TText>
                   <Image
                     style={{
                       width: nomalizes[6],
@@ -234,7 +238,7 @@ const MenuBar = ({
                   />
                 </TextContainer>
                 <TextContainer onPress={GoToCategory}>
-                  <Text style={{fontSize: nomalizes[14]}}>카테고리 관리</Text>
+                  <TText style={{fontSize: nomalizes[14]}}>카테고리 관리</TText>
                   <Image
                     style={{
                       width: nomalizes[6],
@@ -247,10 +251,10 @@ const MenuBar = ({
               </CategoryContainer>
               <SettingContainer>
                 <TextContainer onPress={GoToSetting}>
-                  <Text style={{fontSize: nomalizes[14]}}>설정</Text>
+                  <TText style={{fontSize: nomalizes[14]}}>설정</TText>
                 </TextContainer>
                 <TextContainer>
-                  <Text style={{fontSize: nomalizes[14]}}>로그아웃</Text>
+                  <TText style={{fontSize: nomalizes[14]}}>로그아웃</TText>
                 </TextContainer>
               </SettingContainer>
             </ContentWrapper>

@@ -15,6 +15,7 @@ import {cssUtil} from '@utills/cssUtil';
 const Heading = styled.Text`
   font-weight: bold;
   font-size: ${nomalizes[12]}px;
+  color: rgb(50, 50, 50);
 `;
 const RenderContainer = styled.View`
   height: ${nomalizes[40]}px;
@@ -36,6 +37,7 @@ const Row = styled.View`
 const FruitText = styled.Text`
   margin-left: ${nomalizes[5]}px;
   font-size: ${nomalizes[12]}px;
+  color: RGB(50, 50, 50);
 `;
 const ConsumeDone = styled.View`
   width: ${nomalizes[26]}px;

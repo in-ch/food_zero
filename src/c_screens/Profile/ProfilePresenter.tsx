@@ -44,6 +44,7 @@ const Nickname = styled.Text`
 `;
 const Nim = styled.Text`
   font-size: ${nomalizes[14]}px;
+  color: rgb(50, 50, 50);
 `;
 const EditContainer = styled.TouchableOpacity`
   height: ${nomalizes[25]}px;

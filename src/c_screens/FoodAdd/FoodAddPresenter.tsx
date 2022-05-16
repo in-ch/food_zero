@@ -27,6 +27,7 @@ const SearchRelateViewText = styled.Text`
   font-size: ${nomalizes[12]}px;
   margin-top: ${nomalizes[8]}px;
   margin-bottom: ${nomalizes[8]}px;
+  color: rgb(50, 50, 50);
 `;
 
 interface Props {

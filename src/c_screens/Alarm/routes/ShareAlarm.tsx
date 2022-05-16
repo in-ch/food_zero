@@ -48,7 +48,9 @@ const Bottom = styled.View`
   width: 100%;
   height: ${nomalizes[20]}px;
 `;
-const FoodText = styled.Text``;
+const FoodText = styled.Text`
+  color: #000;
+`;
 const DDay = styled.Text`
   color: #a4a4a4;
   margin-top: ${nomalizes[4]}px;

@@ -35,18 +35,7 @@ const TText = styled.Text<TextContainerProps>`
   left: ${props => (props.button ? nomalizes[15] : -nomalizes[15])};
   font-size: ${nomalizes[14]}px;
   font-weight: bold;
-`;
-const Button = styled.TouchableOpacity`
-  width: ${nomalizes[45]}px;
-  height: ${nomalizes[25]}px;
-  margin-right: ${nomalizes[10]}px;
-  border-radius: ${nomalizes[7]}px;
-  display: flex;
-  background-color: #ff6c63;
-  ${cssUtil.doubleCenter};
-`;
-const ButtonText = styled.Text`
-  color: white;
+  color: #000;
 `;
 interface TextContainerProps {
   button?: boolean;

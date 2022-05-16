@@ -22,6 +22,7 @@ const TTextInput = styled.TextInput`
   flex: 9;
   height: ${nomalizes[40]}px;
   font-size: ${nomalizes[14]}px;
+  color: RGB(50, 50, 50);
 `;
 const LengthContainer = styled.View`
   flex: 1;
