@@ -1,5 +1,8 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import {
+  CardStyleInterpolators,
+  createStackNavigator,
+} from '@react-navigation/stack';
 import Home from '@screens/Home/Home';
 import Login from '@screens/Login/Login';
 import InputProfile from '@screens/Login/Pages/InputProfile/InputProfile';
@@ -55,26 +58,146 @@ const RootNavigation = () => {
     <Stack.Navigator
       initialRouteName="Login"
       screenOptions={{headerShown: false}}>
-      <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="InputProfile" component={InputProfile} />
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Agenda" component={Agenda} />
-      <Stack.Screen name="Alarm" component={Alarm} />
-      <Stack.Screen name="Search" component={Search} />
-      <Stack.Screen name="FoodAdd" component={FoodAdd} />
-      <Stack.Screen name="FoodSearchResult" component={FoodSearchResult} />
-      <Stack.Screen name="FoodAddInput" component={FoodAddInput} />
-      <Stack.Screen name="FoodDone" component={FoodDone} />
-      <Stack.Screen name="Detail" component={Detail} />
-      <Stack.Screen name="Setting" component={Setting} />
-      <Stack.Screen name="Category" component={Category} />
-      <Stack.Screen name="CategoryAdd" component={CategoryAdd} />
-      <Stack.Screen name="CategoryUpdate" component={CategoryUpdate} />
-      <Stack.Screen name="Neighbor" component={Neighbor} />
-      <Stack.Screen name="Terms" component={Terms} />
-      <Stack.Screen name="PersonalPolicy" component={PersonalPolicy} />
-      <Stack.Screen name="Profile" component={Profile} />
-      <Stack.Screen name="ProfileEdit" component={ProfileEdit} />
+      <Stack.Screen
+        name="Login"
+        component={Login}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="InputProfile"
+        component={InputProfile}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="Agenda"
+        component={Agenda}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="Alarm"
+        component={Alarm}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="Search"
+        component={Search}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="FoodAdd"
+        component={FoodAdd}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="FoodSearchResult"
+        component={FoodSearchResult}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="FoodAddInput"
+        component={FoodAddInput}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="FoodDone"
+        component={FoodDone}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="Detail"
+        component={Detail}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="Setting"
+        component={Setting}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="Category"
+        component={Category}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="CategoryAdd"
+        component={CategoryAdd}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="CategoryUpdate"
+        component={CategoryUpdate}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="Neighbor"
+        component={Neighbor}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="Terms"
+        component={Terms}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="PersonalPolicy"
+        component={PersonalPolicy}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="ProfileEdit"
+        component={ProfileEdit}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
     </Stack.Navigator>
   );
 };

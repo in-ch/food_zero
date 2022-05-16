@@ -15,15 +15,17 @@ import {cssUtil} from '@utills/cssUtil';
 
 const TextContainer = styled.View`
   padding-left: ${nomalizes[2]}px;
-  padding-top: ${nomalizes[2]}px;
-  padding-bottom: ${nomalizes[2]}px;
-  margin-bottom: ${nomalizes[5]}px;
+  padding-bottom: ${nomalizes[1]}px;
+  margin-bottom: ${nomalizes[2]}px;
   margin-right: ${nomalizes[5]}px;
   background-color: #5f5bff;
+  display: flex;
 `;
 const DayContainer = styled.View<CurrentProps>`
   width: ${nomalizes[20]}px;
   height: ${nomalizes[20]}px;
+  padding-top: ${nomalizes[1]}px;
+  padding-bottom: ${nomalizes[1]}px;
   border-radius: ${nomalizes[4]}px;
   display: flex;
   background-color: ${props => (props.current ? '#FF6C63' : '')};
@@ -31,22 +33,19 @@ const DayContainer = styled.View<CurrentProps>`
 `;
 const DayText = styled.Text<DayTextProps>`
   color: ${props =>
-    props.disabled === 'disabled'
-      ? '#cacaca'
-      : props.disabled
-      ? '#fff'
-      : '#303030'};
+    props.dis === 'disabled' ? '#cacaca' : props.current ? '#fff' : '#303030'};
 `;
 const TText = styled.Text`
   text-align: left;
   font-size: ${nomalizes[8]}px;
+  color: rgb(50, 50, 50);
 `;
 
 interface CurrentProps {
   current?: boolean;
 }
 interface DayTextProps {
-  dis: string;
+  dis?: string;
   GoToAgenda: () => void;
   current?: boolean;
 }
@@ -76,7 +75,7 @@ const CCalendar = ({GoToAgenda, GoToDetail}: Props) => {
         dayComponent={({date, state}) => {
           console.log(DateToString(date?.year, date?.month, date?.day));
           return (
-            <View style={{height: nomalizes[80], marginTop: nomalizes[3]}}>
+            <View style={{height: nomalizes[75], marginTop: nomalizes[3]}}>
               <DayContainer
                 current={
                   DateToString(date?.year, date?.month, date?.day) ===
@@ -91,7 +90,6 @@ const CCalendar = ({GoToAgenda, GoToDetail}: Props) => {
                   {date?.day}
                 </DayText>
               </DayContainer>
-              <SizedBox.Custom margin={nomalizes[5]} />
               {state !== 'disabled' && (
                 <TouchableOpacity
                   onPress={() =>
@@ -103,6 +101,7 @@ const CCalendar = ({GoToAgenda, GoToDetail}: Props) => {
                       }${date?.day}`,
                     )
                   }>
+                  <SizedBox.Custom margin={nomalizes[5]} />
                   <TextContainer>
                     <TText>파인애플</TText>
                   </TextContainer>
@@ -112,6 +111,7 @@ const CCalendar = ({GoToAgenda, GoToDetail}: Props) => {
                   <TextContainer>
                     <TText>토마토</TText>
                   </TextContainer>
+                  <SizedBox.Custom margin={nomalizes[5]} />
                 </TouchableOpacity>
               )}
             </View>
@@ -123,7 +123,7 @@ const CCalendar = ({GoToAgenda, GoToDetail}: Props) => {
               borderColor: '#D1D3D4',
               borderTopWidth: 1,
               flex: 1,
-              height: nomalizes[80],
+              height: nomalizes[75],
             },
             week: {
               marginBottom: 0,
